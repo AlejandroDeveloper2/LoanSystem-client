@@ -25,7 +25,7 @@ const InputFile = ({
       <p className="paragraph" id="filename">
         {value === "" ? "¡No se ha seleccionado ningún archivo!" : fileName}
       </p>
-      <BaseButton id={id} type="button" {...props} onClick={() => {}}>
+      <BaseButton id={""} type="button" {...props} onClick={() => {}}>
         <Icon />
         <label className={styles.fileLabel} htmlFor={id}></label>
         <span className="buttonText">{label}</span>

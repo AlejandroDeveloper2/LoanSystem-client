@@ -5,6 +5,8 @@ import {
 } from "@modules/loan-request/interfaces/data-interfaces";
 import { PaymentType } from "@modules/loan/interfaces/data-interfaces";
 
+type ClientDocType = "identificationCard" | "jobLetter" | "payrollStatements";
+
 interface UpdateClientDataForm extends PersonalDataForm {
   companyName: string;
   companyPhone: string /*Campo modificado */;
@@ -27,6 +29,9 @@ interface Client extends PersonalDataForm {
   id: string;
   workingInformation: WorkDataForm;
   bankAccount: BankAccountDataForm;
+  identificationCard: string | null;
+  jobLetter: string | null;
+  payrollStatements: string | null;
   createdAt?: string;
 }
 
@@ -35,4 +40,15 @@ interface ClientsFilters {
   finalDate: string;
 }
 
-export type { UpdateClientDataForm, Client, ClientsFilters };
+interface UploadDocFormData {
+  clientDoc: Blob | string;
+  fileType: ClientDocType;
+}
+
+export type {
+  ClientDocType,
+  UpdateClientDataForm,
+  Client,
+  ClientsFilters,
+  UploadDocFormData,
+};

@@ -2,11 +2,15 @@ import { create } from "zustand";
 import { toast } from "react-toastify";
 
 import { ClientsService } from "@modules/clients/services/Clients.service";
-import { parseUpdatedClientInfo } from "@modules/clients/utils/helpers";
+import {
+  getUpdatedClient,
+  parseUpdatedClientInfo,
+} from "@modules/clients/utils/helpers";
 
 import { ClientStore } from "@modules/clients/interfaces/store-interfaces";
 import {
   Client,
+  ClientDocType,
   ClientsFilters,
   UpdateClientDataForm,
 } from "@modules/clients/interfaces/data-interfaces";
@@ -18,7 +22,7 @@ import {
 
 const clientsService = new ClientsService();
 
-const useClientsStore = create<ClientStore>((set) => ({
+const useClientsStore = create<ClientStore>((set, get) => ({
   clients: [],
   client: null,
   paginationData: {
@@ -102,6 +106,65 @@ const useClientsStore = create<ClientStore>((set) => ({
       toast.success("¡El cliente ha sido actualizado correctamente!");
     } catch (e: unknown) {
       toast.error("¡Ha ocurrido un error al actualizar el cliente!");
+    } finally {
+      toggleLoading("", false);
+    }
+  },
+  uploadClientDoc: async (
+    clientId: string,
+    document: Blob,
+    fileType: ClientDocType,
+    toggleLoading: (message: string, isLoading: boolean) => void
+  ): Promise<void> => {
+    const token: string = window.localStorage.getItem("token") ?? "";
+    try {
+      toggleLoading("Subiendo documento...", true);
+      const formData = new FormData();
+      formData.append("file", document);
+      formData.append("fileType", fileType);
+
+      const { body: documentUrl }: ResponseGlobal<string> =
+        await clientsService.uploadClientDoc(token, clientId, formData);
+      const resDocument: Blob = await clientsService.getClientDoc(documentUrl);
+
+      const hrefDocument = URL.createObjectURL(resDocument);
+
+      set({
+        client: getUpdatedClient(get().client!, fileType, hrefDocument),
+      });
+      toast.success("¡Documento cargado con exito!");
+    } catch (e: unknown) {
+      toast.error("¡Ha ocurrido un error al subir el documento!");
+    } finally {
+      toggleLoading("", false);
+    }
+  },
+
+  updateClientDoc: async (
+    clientId: string,
+    document: Blob,
+    fileType: ClientDocType,
+    toggleLoading: (message: string, isLoading: boolean) => void
+  ): Promise<void> => {
+    const token: string = window.localStorage.getItem("token") ?? "";
+    try {
+      toggleLoading("Actualizando documento...", true);
+      const formData = new FormData();
+      formData.append("file", document);
+      formData.append("fileType", fileType);
+
+      const { body: documentUrl }: ResponseGlobal<string> =
+        await clientsService.updateClientDoc(token, clientId, formData);
+      const resDocument: Blob = await clientsService.getClientDoc(documentUrl);
+
+      const hrefDocument = URL.createObjectURL(resDocument);
+
+      set({
+        client: getUpdatedClient(get().client!, fileType, hrefDocument),
+      });
+      toast.success("¡Documento actualizado con exito!");
+    } catch (e: unknown) {
+      toast.error("¡Ha ocurrido un error al actualizar el documento!");
     } finally {
       toggleLoading("", false);
     }

@@ -3,7 +3,7 @@ import { Group } from "iconoir-react";
 import { useClientDetail } from "@modules/clients/hooks";
 
 import { InfoSection, Spinner } from "@modules/core/components";
-import { UpdateClientForm } from "@modules/clients/components";
+import { ClientDocList, UpdateClientForm } from "@modules/clients/components";
 
 const ClientDetailPage = (): JSX.Element => {
   const { loadingData, clientParam } = useClientDetail();
@@ -20,6 +20,7 @@ const ClientDetailPage = (): JSX.Element => {
         link="/userPanel/clients"
         recordId={clientParam.clientId}
       />
+      <ClientDocList />
       {loadingData.loading ? (
         <Spinner
           className="spinnerBarPrimary"

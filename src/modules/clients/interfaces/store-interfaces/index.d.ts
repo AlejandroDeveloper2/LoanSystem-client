@@ -2,6 +2,7 @@ import {
   Client,
   ClientsFilters,
   UpdateClientDataForm,
+  ClientDocType,
 } from "@modules/clients/interfaces/data-interfaces";
 import { Pagination } from "@modules/core/interfaces/data-interfaces";
 
@@ -24,6 +25,18 @@ export interface ClientStore {
   updateClient: (
     clientId: string,
     updatedClientData: UpdateClientDataForm,
+    toggleLoading: (message: string, isLoading: boolean) => void
+  ) => Promise<void>;
+  uploadClientDoc: (
+    clientId: string,
+    document: Blob,
+    fileType: ClientDocType,
+    toggleLoading: (message: string, isLoading: boolean) => void
+  ) => Promise<void>;
+  updateClientDoc: (
+    clientId: string,
+    document: Blob,
+    fileType: ClientDocType,
     toggleLoading: (message: string, isLoading: boolean) => void
   ) => Promise<void>;
 }

@@ -3,6 +3,7 @@ import { NavigateFunction } from "react-router-dom";
 import {
   UpdateClientDataForm,
   Client,
+  ClientDocType,
 } from "@modules/clients/interfaces/data-interfaces";
 import { IconOnlyButtonProps } from "@modules/core/interfaces/components-interfaces/ButtonProps";
 
@@ -46,6 +47,9 @@ export const parseUpdatedClientInfo = (
       name: updatedClientData.name,
       accountNumber: updatedClientData.accountNumber,
     },
+    identificationCard: null,
+    jobLetter: null,
+    payrollStatements: null,
   };
   return parsedClientData;
 };
@@ -82,4 +86,16 @@ export const getCurrentMonthClients = (clients: Client[]): Client[] => {
     (client) => getMonthName(formatDate(`${client.createdAt}`)) === currentMonth
   );
   return currentMonthClients;
+};
+
+export const getUpdatedClient = (
+  client: Client,
+  fileType: ClientDocType,
+  hrefDocument: string
+): Client => {
+  if (fileType === "identificationCard")
+    return { ...client, identificationCard: hrefDocument };
+  else if (fileType === "jobLetter")
+    return { ...client, jobLetter: hrefDocument };
+  else return { ...client, payrollStatements: hrefDocument };
 };
