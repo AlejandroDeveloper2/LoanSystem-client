@@ -21,6 +21,8 @@ import { PublicLayout } from "@layout/index";
 import { LoadingWindow } from "@modules/core/components";
 
 const PublicRoutes = (): JSX.Element => {
+  //comment
+
   return (
     <Suspense fallback={<LoadingWindow />}>
       <Routes>
