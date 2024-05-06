@@ -1,6 +1,9 @@
 import { toast } from "react-toastify";
 
-import { useUploadClientDoc } from "@modules/clients/hooks";
+import {
+  usePayrollStatementsDoc,
+  useUploadClientDoc,
+} from "@modules/clients/hooks";
 import {
   useIdentificationCardDoc,
   useJobLetterDoc,
@@ -14,6 +17,8 @@ const ClientDocList = (): JSX.Element => {
 
   const { toggleIdCard, ModalIdCardWindow } = useIdentificationCardDoc();
   const { toggleJobLetter, ModalJobLetterWindow } = useJobLetterDoc();
+  const { togglePayrollStatements, ModalPayrollStatementsWindow } =
+    usePayrollStatementsDoc();
   const { toggleUploadDoc, ModalUploadClientDoc } = useUploadClientDoc();
 
   return (
@@ -21,6 +26,7 @@ const ClientDocList = (): JSX.Element => {
       <ModalUploadClientDoc />
       <ModalIdCardWindow />
       <ModalJobLetterWindow />
+      <ModalPayrollStatementsWindow />
       <DocUploadingSection title="Documentación del cliente">
         <DocUploadingSection.FileCard
           docName={
@@ -72,8 +78,13 @@ const ClientDocList = (): JSX.Element => {
               ? "Actualizar documento"
               : "Subir documento"
           }
-          seeFunction={() => {}}
-          uploadModal={() => {}}
+          seeFunction={() => {
+            if (client?.payrollStatements) togglePayrollStatements();
+            else toast.warning("¡No has subido ningún documento!");
+          }}
+          uploadModal={() => {
+            toggleUploadDoc("payrollStatements");
+          }}
         />
       </DocUploadingSection>
     </>
