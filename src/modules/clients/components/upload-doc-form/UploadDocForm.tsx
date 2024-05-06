@@ -75,7 +75,7 @@ const UploadDocForm = ({
 
   return (
     <Form
-      formTitle="Subir pagaré"
+      formTitle="Subir documento"
       Icon={GoogleDocs}
       formRef={formRef}
       handleSubmit={handleSubmit}
