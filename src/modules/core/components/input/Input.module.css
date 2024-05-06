@@ -1,0 +1,327 @@
+/* General Input styles */
+.inputContainer{
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap:var(--spacing-xs);
+    align-items: flex-start;
+    justify-content: center;
+
+    & label{
+        color: var(--primary);
+        font-weight:bold;
+        text-transform:capitalize;
+        text-align: left;
+    }
+    justify-self: center;
+    align-self: flex-start;
+}
+
+.hintText{
+    color: var(--primary);
+    font-weight:300;
+    text-transform:none;
+    text-align: left;
+    margin-left:var(--spacing-2xs);
+}
+
+.inputBody{
+    width: 100%;
+    height: auto;
+    background-color:var(--white);
+    border-radius:var(--radius-sm);
+    border:2px solid var(--primary);
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items:center;
+    gap:var(--spacing-xs);
+    transition: all 0.6s ease;
+    padding: var(--spacing-sm) var(--spacing-2xl);
+
+    & input {
+        width: 80%;
+        outline: none;
+        border: none;
+        background-color: var(--white);
+        &::placeholder{
+            color: var(--gray-light);
+            font-weight:normal;
+            text-transform:capitalize;
+            text-align: left;
+            font-size: var(--font-size-sm);
+        }
+        color: var(--primary);
+        font-weight:500;
+        font-size: var(--font-size-sm);
+    }
+
+    & svg, svg[id="select-arrow"] {
+        color:var(--primary);
+        width:20px;
+        height: 20px;
+        transition: transform 0.6s ease;
+    }
+
+    &:active{
+        box-shadow: 0 0 10px var(--primary);
+    }
+    &:active svg{
+        transform: scale(1.2);
+    }
+    &:active svg[id="select-arrow"]{
+        transform: rotate(90deg);
+    }
+}
+
+@media (min-width: 768px) {
+    .inputContainer{
+        width: 350px;
+    }
+
+    .inputBody{
+        padding: var(--spacing-md) var(--spacing-2xl);
+        & input{
+            &::placeholder{
+                font-size: var(--font-size-normal);
+            }
+            font-size: var(--font-size-normal);
+        }
+        & svg, svg[id="select-arrow"] {
+            width:24px;
+            height: 24px;
+        }
+        &:hover{
+            box-shadow: 0 0 10px var(--primary);
+        }
+        &:hover svg{
+            transform: scale(1.2);
+        }
+        &:hover svg[id="select-arrow"]{
+            transform: rotate(90deg);
+        }
+    }
+}
+
+/*Select styles*/
+.select{
+    outline: none;
+    border: none;
+    width: 80%;
+    color: var(--primary);
+    justify-self: center;
+    font-weight:normal;
+    text-transform:capitalize;
+    text-align: left;
+    font-size: var(--font-size-sm);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    &::-ms-expand {
+      display: none;
+    }
+    transition: all 0.5s ease;
+}
+
+@media (min-width: 768px){
+    .select{
+        font-size: var(--font-size-normal);
+    }
+}
+
+/*Radio button styles*/
+
+.radioButtonList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:var(--spacing-xs);
+    justify-content: flex-start;
+    align-items: center;
+    margin-top:var(--spacing-xs);
+    justify-self: center;
+    & li{
+        list-style: none;
+    }
+}
+
+.radioLabel{
+  color:var(--primary);
+  font-weight: bold;
+  text-transform:capitalize;
+  text-align: center;
+}
+
+.radioButton {
+  & input[type="radio"]{
+    position: absolute;
+    opacity: 0;
+    + .radioLabel{
+        &::before {
+            content: '';
+            background: var(--white);
+            border-radius:var(--radius-rounded);
+            border: 2px solid var(--primary);
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            position: relative;
+            top: -0.2em;
+            margin-right: var(--spacing-sm); 
+            vertical-align: top;
+            cursor: pointer;
+            text-align: center;
+            transition: all 250ms ease;
+        }
+    }
+    &:checked {
+        + .radioLabel {
+          &:before {
+            background-color: var(--primary);
+            box-shadow: inset 0 0 0 4px var(--white);
+          }
+        }
+    }
+    &:focus {
+      + .radioLabel {
+        &:before {
+          outline: none;
+          border-color:var(--primary);
+        }
+      }
+    }
+    + .radioLabel {
+        &:empty {
+          &:before {
+            margin-right: 0;
+          }
+        }
+      }
+
+  }
+}
+
+@media(min-width:768px){
+    .radioButton{
+        & input[type="radio"]{
+            + .radioLabel{
+                &::before {
+                    width: 30px;
+                    height: 30px;    
+                }
+            }
+        
+        }
+    }
+}
+
+/* Indicator input styles */
+.inputIndicator{
+    width:80%;
+    gap:var(--spacing-xs);
+    display: flex;
+    justify-content: flex-start;
+    align-items:center ;
+    justify-self: center;
+}
+
+.indicator {
+    padding:var(--spacing-sm) var(--spacing-xl);
+    border-radius:var(--radius-sm);
+    background-color: var(--primary);
+    display:grid;
+    place-content: center;
+
+    & p{
+        color:var(--white);
+        font-weight: bold;
+        text-transform: capitalize;
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px){
+    .indicator {
+        padding:var(--spacing-md) var(--spacing-2xl);  
+    }
+}
+
+/*Text Area styles*/
+.autoResizeStyle{
+    resize:vertical;
+}
+
+.noAutoResizeStyle{
+    resize:none;
+}
+.autoResizeStyle, .noAutoResizeStyle{
+    width: 100%;
+    height:136px;
+    outline: none;
+    display:table-cell;
+    border: none;
+    font-size:var(--font-size-sm);
+    font-weight:normal;
+    text-align: left;
+    text-transform: capitalize;
+    font-family: var(--font-family);
+    color:var(--primary);
+    justify-self: center;
+    
+    &::placeholder{    
+        color:var(--gray-light);           
+    }
+}
+
+.textAreaBody{
+    align-items:flex-start ;
+}
+
+@media (min-width: 768px) {
+    .autoResizeStyle, .noAutoResizeStyle{
+        height: 180px;   
+        font-size:var(--font-size-normal);  
+    }    
+}
+
+/* Input File Styles */
+
+.inputFile{
+    appearance: none;
+    visibility: hidden;
+    opacity: 0;
+    display:none;
+}
+.fileLabel {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+.inputFileContainer, .errorInputFileContainer{
+    width:auto;
+    display: flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:var(--spacing-md);
+    flex-direction: column;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border:1px solid var(--gray-light);
+
+    & p[id="filename"]{
+        color:var(--primary);
+        font-weight:500;
+        text-align: left;
+        text-transform: lowercase;
+    }
+}
+.errorInputFileContainer{
+    border:1px solid var(--red);
+
+}
