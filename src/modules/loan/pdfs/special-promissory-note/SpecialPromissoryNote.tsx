@@ -1,4 +1,4 @@
-import { Document, Page, Text, View } from "@react-pdf/renderer";
+import { Document, Page, View, Text } from "@react-pdf/renderer";
 
 import { SpecialPromissoryNoteProps } from "@modules/loan/interfaces/component-interfaces/PromissoryNoteProps";
 
@@ -27,7 +27,7 @@ const SpecialPromissoryNote = ({
                 ...styles.text,
                 textTransform: "uppercase",
                 textDecoration: "underline",
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               Sr(a). {client?.fullName},
@@ -39,7 +39,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               EL PODERDANTE;
@@ -48,7 +48,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               LIC. RONALD ALEXANDER RODRIGUEZ UREÑA,
@@ -60,17 +60,17 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               EL APODERADO;
             </Text>{" "}
           </Text>
-          <Text style={{ ...styles.text, fontFamily: "Outfit Regular" }}>
+          <Text style={styles.text}>
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               PRIMERO: EL PODERDANTE,
@@ -79,7 +79,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               EL APODERADO
@@ -97,7 +97,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               SEGUNDO:
@@ -106,7 +106,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               EL PODERDANTE,
@@ -116,7 +116,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               EL APODERADO,
@@ -129,7 +129,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               TERCERO: EL PODERDANTE{" "}
@@ -139,7 +139,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               EL APODERADO.
@@ -149,7 +149,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               CUARTO: En caso de EL PODERDANTE,
@@ -160,7 +160,7 @@ const SpecialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontFamily: "Outfit Bold",
+                color: "#2C654D",
               }}
             >
               EL APODERADO,

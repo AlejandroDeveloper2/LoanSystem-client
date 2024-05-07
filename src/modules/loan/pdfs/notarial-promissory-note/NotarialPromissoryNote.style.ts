@@ -1,19 +1,13 @@
 import { StyleSheet, Font } from "@react-pdf/renderer";
 
 Font.register({
-  family: "Outfit",
-  fonts: [
-    {
-      src: "/fonts/Outfit-Bold.ttf",
-      fontStyle: "normal",
-      fontWeight: "bold",
-    },
-    {
-      src: "/fonts/Outfit-Regular.ttf",
-      fontStyle: "normal",
-      fontWeight: "normal",
-    },
-  ],
+  family: "Outfit Bold",
+  src: "/fonts/Outfit-Bold.ttf",
+});
+
+Font.register({
+  family: "Outfit Regular",
+  src: "/fonts/Outfit-Regular.ttf",
 });
 
 export const styles = StyleSheet.create({
@@ -48,18 +42,16 @@ export const styles = StyleSheet.create({
   title: {
     color: "#000000",
     fontSize: 11,
-    fontFamily: "Outfit",
-    fontWeight: "bold",
     textAlign: "left",
     textTransform: "uppercase",
+    fontFamily: "Outfit Bold",
   },
   text: {
     color: "#000000",
     fontSize: 10,
     textAlign: "justify",
     lineHeight: 1.5,
-    fontFamily: "Outfit",
-    fontWeight: "normal",
+    fontFamily: "Outfit Regular",
   },
   line: {
     width: 150,

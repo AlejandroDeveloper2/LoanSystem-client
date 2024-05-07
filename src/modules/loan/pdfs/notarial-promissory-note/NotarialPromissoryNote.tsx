@@ -37,7 +37,7 @@ const NotarialPromissoryNote = ({
                 ...styles.text,
                 textTransform: "uppercase",
                 textDecoration: "underline",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               Sr(a). {client?.fullName},
@@ -55,11 +55,9 @@ const NotarialPromissoryNote = ({
               {client?.houseNumber}
             </Text>{" "}
             quién para los fines del presente Acto se constituye en{" "}
-            <Text style={{ ...styles.text, fontWeight: "bold" }}>
-              EL DEUDOR
-            </Text>{" "}
+            <Text style={{ ...styles.text, color: "#2C654D" }}>EL DEUDOR</Text>{" "}
             de{" "}
-            <Text style={{ ...styles.text, fontWeight: "bold" }}>
+            <Text style={{ ...styles.text, color: "#2C654D" }}>
               LIC. RONALD ALEXANDER RODRIGUEZ URENA,
             </Text>{" "}
             dominicano, mayor de edad, titular de la cédula de identidad y
@@ -70,7 +68,7 @@ const NotarialPromissoryNote = ({
                 ...styles.text,
                 textTransform: "uppercase",
                 textDecoration: "underline",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               RD{formatMoney(loan?.amountInterest)},
@@ -84,7 +82,7 @@ const NotarialPromissoryNote = ({
                 ...styles.text,
                 textTransform: "uppercase",
                 textDecoration: "underline",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               {loan?.numberOfQuotas} CUOTAS DE {formatMoney(quotaAmount)} PESOS
@@ -97,7 +95,7 @@ const NotarialPromissoryNote = ({
                 ...styles.text,
                 textTransform: "uppercase",
                 textDecoration: "underline",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               {formatMoney(quotaAmount)} PESOS DOMINICANOS (RD
@@ -108,7 +106,7 @@ const NotarialPromissoryNote = ({
               style={{
                 ...styles.text,
                 textDecoration: "underline",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               {formatDate(loan?.firstPaymentDate, "mixted")}
@@ -118,7 +116,7 @@ const NotarialPromissoryNote = ({
               style={{
                 ...styles.text,
                 textDecoration: "underline",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               {formatDate(endPaymentDate, "mixted")},
@@ -132,7 +130,7 @@ const NotarialPromissoryNote = ({
                 ...styles.text,
                 textTransform: "uppercase",
                 textDecoration: "underline",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               Sr(a). {client?.fullName}
@@ -144,7 +142,7 @@ const NotarialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               perseguir los montos totales adeudados
@@ -154,7 +152,7 @@ const NotarialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               bienes presentes y futuros de su patrimonio,
@@ -165,7 +163,7 @@ const NotarialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontWeight: "bold",
+                color: "#2C654D",
                 textDecoration: "underline",
               }}
             >
@@ -178,7 +176,7 @@ const NotarialPromissoryNote = ({
                 ...styles.text,
                 textTransform: "uppercase",
                 textDecoration: "underline",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               (el ó la) Sr(a). {client?.fullName}
@@ -189,7 +187,7 @@ const NotarialPromissoryNote = ({
                 ...styles.text,
                 textTransform: "uppercase",
                 textDecoration: "underline",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               MENOS UNA (01) DE LAS CUOTAS{" "}
@@ -198,7 +196,7 @@ const NotarialPromissoryNote = ({
             <Text
               style={{
                 ...styles.text,
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               {" "}
@@ -227,7 +225,7 @@ const NotarialPromissoryNote = ({
                   ...styles.text,
                   textAlign: "center",
                   margin: "0 auto",
-                  fontWeight: "bold",
+                  color: "#2C654D",
                 }}
               >
                 LIC. RONALD A. RODRIGUEZ UREÑA
@@ -250,7 +248,7 @@ const NotarialPromissoryNote = ({
                   ...styles.text,
                   textAlign: "center",
                   margin: "0 auto",
-                  fontWeight: "bold",
+                  color: "#2C654D",
                 }}
               >
                 Sr(a). {client?.fullName}
@@ -275,7 +273,7 @@ const NotarialPromissoryNote = ({
                   ...styles.text,
                   textAlign: "center",
                   margin: "0 auto",
-                  fontWeight: "bold",
+                  color: "#2C654D",
                 }}
               >
                 MARIANNYS GOMERA
@@ -285,6 +283,7 @@ const NotarialPromissoryNote = ({
                   ...styles.text,
                   textAlign: "center",
                   margin: "0 auto",
+                  color: "#2C654D",
                 }}
               >
                 Testigo
@@ -298,7 +297,7 @@ const NotarialPromissoryNote = ({
                   ...styles.text,
                   textAlign: "center",
                   margin: "0 auto",
-                  fontWeight: "bold",
+                  color: "#2C654D",
                 }}
               >
                 DILEXY RODRIGUEZ
@@ -329,7 +328,7 @@ const NotarialPromissoryNote = ({
                 ...styles.text,
                 textAlign: "center",
                 margin: "0 auto",
-                fontWeight: "bold",
+                color: "#2C654D",
               }}
             >
               LIC. DIOQUE PORFIRIO JAVIER ALCANTARA
