@@ -7,6 +7,12 @@ interface GeneralIndicators {
   totalLoansPaid: number;
   totalLoansInArrears: number;
   profitsCollected: number;
+  legalExpensesTotal: number;
 }
 
-export type { GeneralIndicators };
+interface OperationalExpensesFormData {
+  startDate: string;
+  endDate: string;
+}
+
+export type { GeneralIndicators, OperationalExpensesFormData };

@@ -16,19 +16,20 @@ import {
   ReferencesInfoPage,
 } from "@pages/public-pages/loan-request-pages";
 
+import LandingPage from "@pages/public-pages/landing-page/LandingPage";
+
 import { PublicLayout } from "@layout/index";
 
 import { LoadingWindow } from "@modules/core/components";
 
 const PublicRoutes = (): JSX.Element => {
-  //comment
-
   return (
     <Suspense fallback={<LoadingWindow />}>
       <Routes>
         {/* Rutas publicas  */}
         <Route path="/" element={<PublicLayout />}>
-          <Route index element={<LoginPage />} />
+          <Route index element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/recoverPassword" element={<RecoverPasswordPage />} />
           <Route
             path="/changePassword/:token"

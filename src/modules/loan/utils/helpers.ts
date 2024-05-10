@@ -229,3 +229,14 @@ export const getEditAnnotationOption = (clickFunction: () => void) => {
     },
   };
 };
+
+export const calculateQuotaMora = (
+  quotaAmount: number,
+  paymentCycle: PaymentType
+): number => {
+  const interestPercentage: number = 0.1;
+  if (paymentCycle === "Mensual") return quotaAmount * interestPercentage;
+  if (paymentCycle === "Quincenal")
+    return quotaAmount * (interestPercentage / 2);
+  return quotaAmount * (interestPercentage / 4);
+};

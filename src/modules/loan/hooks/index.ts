@@ -8,3 +8,4 @@ export { default as useUploadPromissory } from "./useUploadPromissory";
 export { default as useApproveLoanFormLoad } from "./useApproveLoanFormLoad";
 export { default as useAnnotationFormLoad } from "./useAnnotationFormLoad";
 export { default as useAnnotationsLoad } from "./useAnnotationsLoad";
+export { default as useQuotaFormLoad } from "./useQuotaFormLoad";

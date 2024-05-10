@@ -23,6 +23,7 @@ interface ApproveLoanDataForm {
 
 interface PartialPaymentDataForm {
   balance: number;
+  interests: number;
   isFullPayment: boolean;
 }
 
@@ -42,7 +43,7 @@ interface PaymentSchedule {
   amount: number;
   quotaNumber: number;
   paymentCycle: PaymentType;
-  paymentStatus: string;
+  paymentStatus: PaymentStatusType;
   paymentReference: string;
   loan: Loan;
   balancePaid: number;

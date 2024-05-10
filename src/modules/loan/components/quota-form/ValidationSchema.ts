@@ -21,6 +21,11 @@ export const validationSchema = async (
       )
     )
     .catch((error: FieldErrorType) => error),
+  interest: await formValidations.validateNumericFields(
+    formData.interests,
+    "interests",
+    formRef
+  ),
   isFullPayment: await formValidations
     .validateEmptyFields(
       String(formData.isFullPayment),

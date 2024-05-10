@@ -16,13 +16,13 @@ const MainRoutes = (): JSX.Element => {
       {authStatus === "authenticated" ? (
         <>
           <Route path="/*" element={<ProtectedRoutes />} />
-          <Route path="/" element={<Navigate to={`/userPanel`} />} />
+          <Route path="/login" element={<Navigate to={`/userPanel`} />} />
           <Route path="/loanRequest/*" element={<Navigate to="/userPanel" />} />
         </>
       ) : (
         <>
           <Route path="/*" element={<PublicRoutes />} />
-          <Route path="/userPanel/*" element={<Navigate to="/" />} />
+          <Route path="/userPanel/*" element={<Navigate to="/login" />} />
         </>
       )}
     </Routes>

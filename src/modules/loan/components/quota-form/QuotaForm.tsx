@@ -1,68 +1,27 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
 import { HandCash, Cash } from "iconoir-react";
 
-import {
-  initialErrors,
-  initialValues,
-} from "@modules/loan/constants/quotaInitialValues";
-
 import { QuotaFormProps } from "@modules/loan/interfaces/component-interfaces/QuotaFormProps";
-import { PartialPaymentDataForm } from "@modules/loan/interfaces/data-interfaces";
 
-import { useForm, useLoading, useRadioButton } from "@modules/core/hooks";
-import { useLoanStore } from "@modules/loan/state-store";
 import { validationSchema } from "./ValidationSchema";
 
 import { Form } from "@modules/core/components";
+import { formatMoney } from "@modules/core/utils/helpers";
+import { useQuotaFormLoad } from "@modules/loan/hooks";
+import { calculateQuotaMora } from "@modules/loan/utils/helpers";
 
-const QuotaForm = ({
-  quotaId,
-  quotaAmount,
-  loan,
-  toggleModal,
-}: QuotaFormProps): JSX.Element => {
-  function action() {
-    payLoanQuota(quotaId, loan.id, formData, toggleLoading).then(() => {
-      toggleModal();
-    });
-  }
-
-  const { payLoanQuota } = useLoanStore();
-  const { loading, toggleLoading } = useLoading();
-
+const QuotaForm = (props: QuotaFormProps): JSX.Element => {
   const {
+    loading,
     formData,
     formRef,
     errors,
+    radioButtonData,
+    totalToPay,
+    payment,
     handleChange,
     handleSubmit,
-    updateFormData,
-    updateFormInitialValues,
-  } = useForm<PartialPaymentDataForm>(
-    initialValues,
-    initialErrors,
-    "add",
-    validationSchema,
-    action
-  );
-  const { radioButtonData, handleRadioChange } = useRadioButton<{
-    option1: boolean;
-    option2: boolean;
-  }>(
-    { option1: false, option2: true },
-    "true",
-    "isFullPayment",
-    updateFormData
-  );
-
-  useEffect(() => {
-    updateFormInitialValues({
-      ...initialValues,
-      isFullPayment: Boolean(radioButtonData.selectedValue === "true"),
-      balance: radioButtonData.selectedValue === "true" ? quotaAmount : 0,
-    });
-  }, [radioButtonData.selectedValue]);
+    handleRadioChange,
+  } = useQuotaFormLoad(props, validationSchema);
 
   return (
     <Form
@@ -111,9 +70,34 @@ const QuotaForm = ({
           onChange={handleChange}
           disabled={radioButtonData.selectedValue === "true"}
         />
+        {payment?.paymentStatus === "Mora" ? (
+          <p className="paragraph">
+            Valor de mora sugerido:{" "}
+            {formatMoney(
+              calculateQuotaMora(payment?.amount, payment?.paymentCycle)
+            )}
+          </p>
+        ) : null}
+
+        {payment?.paymentStatus === "Mora" ? (
+          <Form.Input
+            id="interests"
+            name="interests"
+            label="Valor de mora *"
+            type="number"
+            placeholder="Digita el monto adicional"
+            value={formData.interests}
+            errorMessage={errors["interests"].message}
+            Icon={Cash}
+            onChange={handleChange}
+          />
+        ) : null}
       </Form.FieldSet>
+      <h2 className="buttonText">
+        Valor total a pagar: {formatMoney(totalToPay)}
+      </h2>
       <Form.IconButton
-        id="button-save-quota"
+        id="button-pay-quota"
         type="submit"
         title="Agregar abono"
         Icon={Cash}

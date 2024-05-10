@@ -16,6 +16,7 @@ const Card = ({
   Icon,
   loading,
   loadingMessage,
+  onClick,
 }: CardProps): JSX.Element => {
   const navigate = useNavigate();
 
@@ -33,7 +34,7 @@ const Card = ({
         </span>
       )}
       <small className="captionText">{captionText}</small>
-      {moreDetailsLink ? (
+      {moreDetailsLink || onClick ? (
         <IconButton
           Icon={Eye}
           label="Ver más detalles"
@@ -42,7 +43,13 @@ const Card = ({
           title="Ver más detalles"
           variant="neutral"
           loading={false}
-          onClick={() => navigate(moreDetailsLink)}
+          onClick={
+            moreDetailsLink
+              ? () => navigate(moreDetailsLink)
+              : onClick
+              ? onClick
+              : () => {}
+          }
         />
       ) : null}
     </div>

@@ -11,6 +11,7 @@ interface CardProps {
   loading: boolean;
   loadingMessage?: string;
   moreDetailsLink?: string;
+  onClick?: () => void;
 }
 
 interface CardListProps {

@@ -14,7 +14,8 @@ import { GeneralIndicators } from "@modules/dashboard/interfaces/data-interfaces
 
 export const getIndicatorCards = (
   generalIndicators: GeneralIndicators,
-  loading: boolean
+  loading: boolean,
+  toggleOperationalExpensesModal: () => void
 ): CardProps[] => {
   return [
     {
@@ -87,6 +88,15 @@ export const getIndicatorCards = (
       captionText: "General",
       variant: "danger",
       moreDetailsLink: "/userPanel/loans",
+      loading,
+    },
+    {
+      title: "Gastos operativos",
+      value: formatMoney(generalIndicators.legalExpensesTotal),
+      Icon: HandCash,
+      captionText: "Mensual",
+      variant: "warning",
+      onClick: toggleOperationalExpensesModal,
       loading,
     },
   ];

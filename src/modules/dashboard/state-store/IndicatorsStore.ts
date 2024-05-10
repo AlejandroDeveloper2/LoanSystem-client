@@ -3,23 +3,20 @@ import { toast } from "react-toastify";
 
 import { IndicatorsService } from "@modules/dashboard/services/Indicators.service";
 
+import { initialGeneralIndicators } from "../constants/storeData";
+
 import { IndicatorsStore } from "@modules/dashboard/interfaces/store-interfaces";
 import { ResponseGlobal } from "@modules/core/interfaces/data-interfaces";
-import { GeneralIndicators } from "@modules/dashboard/interfaces/data-interfaces";
+import {
+  GeneralIndicators,
+  OperationalExpensesFormData,
+} from "@modules/dashboard/interfaces/data-interfaces";
 
 const indicatorsService = new IndicatorsService();
 
 const useIndicatorsStore = create<IndicatorsStore>((set) => ({
-  generalIndicators: {
-    totalClients: 0,
-    totalRequest: 0,
-    totalCapitalInvested: 0,
-    totalActiveLoans: 0,
-    totalProfits: 0,
-    totalLoansPaid: 0,
-    totalLoansInArrears: 0,
-    profitsCollected: 0,
-  },
+  generalIndicators: initialGeneralIndicators,
+  operationalExpenses: 0,
   getGeneralIndicators: async (
     toggleLoading: (message: string, isLoading: boolean) => void
   ): Promise<void> => {
@@ -33,6 +30,24 @@ const useIndicatorsStore = create<IndicatorsStore>((set) => ({
       toast.error(
         "¡Ha ocurrido un error al obtener los indicadores generales!"
       );
+    } finally {
+      toggleLoading("", false);
+    }
+  },
+
+  getOperationalExpenses: async (
+    formData: OperationalExpensesFormData,
+    toggleLoading: (message: string, isLoading: boolean) => void
+  ): Promise<void> => {
+    const token: string = window.localStorage.getItem("token") ?? "";
+    try {
+      toggleLoading("Calculando gastos operativos...", true);
+      const { body: operationalExpenses }: ResponseGlobal<number> =
+        await indicatorsService.getOperationalExpenses(formData, token);
+      set({ operationalExpenses });
+      toast.success("¡Calculo realizado con exito!");
+    } catch (e: unknown) {
+      toast.error("¡Ha ocurrido un error al calcular los gastos operativos!");
     } finally {
       toggleLoading("", false);
     }
