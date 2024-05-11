@@ -8,11 +8,11 @@ import {
 } from "@modules/dashboard/constants/operationalInitialValues";
 
 import { useForm, useLoading } from "@modules/core/hooks";
+import { useIndicatorsStore } from "@modules/dashboard/state-store";
 import { validationSchema } from "./ValidationSchema";
 import { formatMoney } from "@modules/core/utils/helpers";
 
 import { CardList, Form } from "@modules/core/components";
-import { useIndicatorsStore } from "@modules/dashboard/state-store";
 
 const OperationalExpensesForm = (): JSX.Element => {
   const { loading, toggleLoading } = useLoading();
