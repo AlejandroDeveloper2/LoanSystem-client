@@ -1,0 +1,11 @@
+.layoutContainer{
+    width: 100%;
+    height:auto;
+    display: flex;
+    flex-direction:column;
+    gap:var(--spacing-null);
+    justify-content:flex-start;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+}

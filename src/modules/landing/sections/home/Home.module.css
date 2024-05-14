@@ -1,0 +1,110 @@
+.home {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white);
+    position: relative;
+    display: grid;
+    place-content: center;
+
+    img[id="img-2"]{
+        position: absolute;
+        top:80px;
+        left:0;
+        right: 0;
+        margin:auto;
+        transform: scale(0.6);
+    }
+
+    img[id="img-1"]{
+        position: absolute;
+        bottom:160px;
+        left:20px;
+        display: none;
+    }
+
+    article {
+        width: 100%;
+        display:flex;
+        margin-top: 40px;
+        flex-direction: column;
+        gap:var(--spacing-3xl);
+        justify-content: center;
+        align-items: center;
+        padding:0 var(--spacing-xl);
+
+        h1 {
+            color: var(--primary);
+            font-weight: bold;
+            white-space: pre-wrap;
+            text-align: center;
+        }
+
+        p{
+            color: var(--primary);
+            font-weight: normal;
+            white-space: pre-wrap;
+            text-align: center;
+        }
+    }
+
+    & svg[id="figure-left"] {
+        left:0;
+        bottom:0;
+        position: absolute;
+    }
+
+    & svg[id="figure-right"] {
+        right:0;
+        bottom:0;
+        position: absolute;
+    }
+    a {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 768px) {
+    .home {
+        img[id="img-1"]{
+            display: block;
+            transform: scale(0.7);
+        }
+        article{
+            width: 570px;
+            padding:0;
+            margin-top: 0;
+        }
+
+        a {
+            width: 80px;
+            height: 80px;
+        }
+        
+    }
+}
+
+@media (min-width: 1400px) {
+    .home {
+        article{
+            width: 670px;
+        }
+
+        img[id="img-2"]{
+            top:150px;
+            left:auto;
+            right: 100px;
+            transform: scale(1);
+        }
+        img[id="img-1"]{
+            transform: scale(1);
+            bottom:160px;
+            left:100px;
+        }
+    }
+}

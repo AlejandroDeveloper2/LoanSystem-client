@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import {
   LoginPage,
@@ -18,16 +18,23 @@ import {
 
 import LandingPage from "@pages/public-pages/landing-page/LandingPage";
 
-import { PublicLayout } from "@layout/index";
+import { LandingPageLayout, PublicLayout } from "@layout/index";
 
 import { LoadingWindow } from "@modules/core/components";
 
 const PublicRoutes = (): JSX.Element => {
+  const location = useLocation();
+
   return (
     <Suspense fallback={<LoadingWindow />}>
       <Routes>
         {/* Rutas publicas  */}
-        <Route path="/" element={<PublicLayout />}>
+        <Route
+          path="/"
+          element={
+            location.pathname === "/" ? <LandingPageLayout /> : <PublicLayout />
+          }
+        >
           <Route index element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/recoverPassword" element={<RecoverPasswordPage />} />

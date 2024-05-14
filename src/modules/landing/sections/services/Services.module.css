@@ -1,0 +1,149 @@
+.services {
+    background-color: var(--primary);
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding:100px var(--spacing-null);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:var(--spacing-5xl);
+    position:relative;
+
+    & svg[id="figure-left"] {
+        left:0;
+        bottom:0;
+        position: absolute;
+    }
+
+    & svg[id="figure-right"] {
+        right:0;
+        bottom:0;
+        position: absolute;
+    }
+    a {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.serviceDescription, .howWorks, .steps{
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:var(--spacing-2xl);
+
+    img {
+        transform: scale(0.6);
+    }
+}
+
+.requeriments{
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:var(--spacing-4xl);
+    margin-bottom: var(--spacing-4xl);
+
+    h1 {
+        color:var(--white);
+        font-weight: bold;
+        text-align: center;
+    }
+
+    p {
+        color:var(--white);
+        text-align:left;
+        font-weight: 400;
+        white-space: pre-wrap;
+    }
+}
+
+.text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap:var(--spacing-md);  
+
+    h1{
+        color:var(--white);
+        font-weight: bold;
+        text-align: center;
+    }
+    p {
+        color:var(--white);
+        text-align:left;
+        font-weight: 400;
+        white-space: pre-wrap;
+        span{
+            font-weight: bold;
+        }
+        svg {
+            color: var(--white);
+            margin-right:var(--spacing-sm);
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.cardList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .serviceDescription, .howWorks,.steps{
+        width: 680px;
+        gap:var(--spacing-4xl);
+        img {
+            transform: scale(0.8);
+        }
+    }
+    .requeriments{
+        width: 680px;
+    }
+    .text{
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .services {
+        a {
+            width: 80px;
+            height: 80px;
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .requeriments{
+        width: 1000px;
+    }
+    .serviceDescription,.howWorks,.steps{
+        flex-direction: row;
+        width: 1000px;
+        img {
+            transform: scale(1);
+        }
+    }
+    .howWorks{
+        flex-direction: row-reverse;
+    }
+}

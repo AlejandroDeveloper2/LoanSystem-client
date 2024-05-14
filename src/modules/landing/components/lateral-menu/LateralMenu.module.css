@@ -1,0 +1,41 @@
+.lateralNavInvisble, .lateralNav {
+    height: 90%;
+    position:fixed;
+    bottom:0;
+    left:0;
+    transform:translateX(-100%);
+    transition: all ease 0.6s;
+    background-color:var(--white);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction:column;
+    gap:var(--spacing-4xl);
+    padding:var(--spacing-xl) var(--spacing-md);
+    border-right:1px solid var(--primary);
+    z-index:100;
+    i {
+        svg {
+            width: 80px;
+            height: 80px;
+        }
+       
+    }
+}
+
+.lateralNav{
+    transform:translateX(0); 
+}
+
+.mobileLinkList{
+    display: flex;
+    flex-direction: column;
+    gap:var(--spacing-md);
+    justify-content: center;
+    align-items: center;
+    li {
+        list-style: none;
+        display: block;
+    }
+
+}

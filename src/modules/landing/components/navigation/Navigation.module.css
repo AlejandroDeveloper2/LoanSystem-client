@@ -1,0 +1,123 @@
+.nav{
+    width: 100%;
+    background-color:var(--white);
+    padding:var(--spacing-2xl) var(--spacing-xl);
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+    z-index:100;
+
+    & i {
+        display: none;
+        svg {
+            width:80px;
+            height: 80px;
+        }
+    }
+
+    button[id="btn-contact"]{
+        width: auto;
+        padding:var(--spacing-xl) var(--spacing-4xl);
+    }
+
+    @media(min-width:1400px) {
+        width: 90%;
+        & i {
+            display:flex;
+        }
+        button[id="btn-contact"]{
+            padding:var(--spacing-2xl) var(--spacing-4xl);
+        }
+        border-bottom-left-radius: var(--radius-md);
+        border-bottom-right-radius: var(--radius-md);
+    }
+}
+
+.menu{
+    padding: var(--spacing-xl);
+    border: none;
+    display: inline-flex;
+    justify-content:center;
+    align-items:center;
+    gap:var(--spacing-sm);
+    background-color: var(--white);
+    border-radius: var(--radius-sm);
+    & svg{
+        color:var(--primary);
+        width: 40px;
+        height: 40px;
+    }
+    & span {
+        color:var(--primary);
+        font-weight:bold;
+        text-align: center;
+    }
+
+    &:hover {
+        cursor:pointer;
+        opacity: 0.6;
+    }
+
+    @media(min-width:1400px) {
+       display: none;
+    }
+}
+
+.linkList{
+    display: none;
+    gap:var(--spacing-md);
+    justify-content: center;
+    align-items: center;
+
+    li {
+        list-style: none;
+        display: block;
+    }
+
+    @media(min-width:1400px) {
+        display: inline-flex;
+    }
+}
+.linkIndicator,.linkIndicatorActive{
+    width:100%;
+    height: 10px;
+    border-radius: var(--radius-sm);
+    background-color: var(--primary);
+    transition: all 0.6s ease;
+    position: absolute;
+    bottom:0;
+    left:0;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.linkIndicatorActive{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.link{
+    text-align: center;
+    text-decoration: none;
+    color:var(--primary);
+    font-weight: bold;
+    padding-left:var(--spacing-xs);
+    padding-right:var(--spacing-xs);
+    padding-top:var(--spacing-xs);
+    padding-bottom:var(--spacing-md);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        .linkIndicator{
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+}

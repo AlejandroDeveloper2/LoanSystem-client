@@ -88,17 +88,17 @@ body::-webkit-scrollbar-thumb{
 
 /* Global styles */
 .heading1, .heading2, .heading3, .buttonText, .paragraph, .captionText{
-  font-size:var(--font-size-4xl);
+  font-size:var(--font-size-3xl);
   font-style: normal;
   line-height: normal;
   white-space: pre-wrap;
 }
 
 .heading2{
-  font-size:var(--font-size-3xl);
+  font-size:var(--font-size-2xl);
 }
 .heading3{
-  font-size:var(--font-size-2xl);
+  font-size:var(--font-size-xl);
 }
 
 .buttonText{
@@ -142,6 +142,15 @@ body::-webkit-scrollbar-thumb{
 }
 
 @media (min-width: 768px) {
+  .heading1 {
+    font-size:var(--font-size-4xl);
+  }
+  .heading2{
+    font-size:var(--font-size-3xl);
+  }
+  .heading3{
+    font-size:var(--font-size-2xl);
+  }
   .formContainer{
       & form { 
           & fieldset {

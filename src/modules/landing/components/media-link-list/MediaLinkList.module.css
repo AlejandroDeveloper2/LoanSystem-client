@@ -1,0 +1,17 @@
+.mediaLinkList{
+    width: auto;
+    height: auto;
+    display: flex;
+    gap:var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-2xl);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top:0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 100;
+    background-color: transparent;
+}
