@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { MenuScale, Send } from "iconoir-react";
 
 import { navLinks } from "@modules/landing/constants/navData";
@@ -26,9 +26,9 @@ const Navigation = (): JSX.Element => {
         </button>
         <ul className={styles.linkList}>
           {navLinks.map((link, i) => (
-            <Link
+            <a
               key={i}
-              to={link.to}
+              href={link.to}
               className={"buttonText" + " " + styles.link}
             >
               {link.label}
@@ -39,7 +39,7 @@ const Navigation = (): JSX.Element => {
                     : styles.linkIndicator
                 }
               ></span>
-            </Link>
+            </a>
           ))}
         </ul>
         <IconButton

@@ -10,9 +10,24 @@ const LandingPageLayout = (): JSX.Element => {
     <main className={styles.layoutContainer}>
       <Navigation />
       <MediaLinkList>
-        <MediaLinkList.Link Icon={Facebook} title="Facebook" href="#" />
-        <MediaLinkList.Link Icon={Instagram} title="Instagram" href="#" />
-        <MediaLinkList.Link Icon={Telegram} title="Instagram" href="#" />
+        <MediaLinkList.Link
+          Icon={Facebook}
+          title="Facebook"
+          href="#"
+          external
+        />
+        <MediaLinkList.Link
+          Icon={Instagram}
+          title="Instagram"
+          href="#"
+          external
+        />
+        <MediaLinkList.Link
+          Icon={Telegram}
+          title="Instagram"
+          href="#"
+          external
+        />
       </MediaLinkList>
       <Outlet />
     </main>
