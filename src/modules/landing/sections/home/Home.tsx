@@ -1,6 +1,8 @@
 import { Send, ArrowDown } from "iconoir-react";
 import { motion } from "framer-motion";
 
+import { useScreenType } from "@modules/core/hooks";
+
 import { Figure4, Figure5 } from "@assets/svg";
 import { IconButton } from "@modules/core/components";
 import { MediaLink } from "@modules/landing/components";
@@ -9,6 +11,8 @@ import styles from "./Home.module.css";
 import { IllustrationHome1, IllustrationHome2 } from "@assets/images";
 
 const Home = (): JSX.Element => {
+  const screenType = useScreenType();
+
   return (
     <section className={styles.home} id="home">
       <motion.article
@@ -76,7 +80,7 @@ const Home = (): JSX.Element => {
       <Figure4 id="figure-right" color="var(--primary)" />
       <motion.div
         initial={{ y: 20, opacity: 0 }}
-        whileInView={{ y: 250, opacity: 1 }}
+        whileInView={{ y: screenType === "mobile" ? 200 : 250, opacity: 1 }}
         viewport={{ once: false }}
         transition={{ duration: 2 }}
       >
