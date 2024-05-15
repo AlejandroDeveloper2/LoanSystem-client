@@ -1,5 +1,5 @@
 import { Send, ArrowDown } from "iconoir-react";
-import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { Figure4, Figure5 } from "@assets/svg";
 import { IconButton } from "@modules/core/components";
@@ -9,11 +9,14 @@ import styles from "./Home.module.css";
 import { IllustrationHome1, IllustrationHome2 } from "@assets/images";
 
 const Home = (): JSX.Element => {
-  const navigate = useNavigate();
-
   return (
     <section className={"section" + " " + styles.home} id="home">
-      <article>
+      <motion.article
+        initial={{ marginTop: -150, opacity: 0 }}
+        whileInView={{ marginTop: 0, opacity: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 3 }}
+      >
         <h1 className="heading1">
           Cashmoney RD Servicio de préstamos personales
         </h1>
@@ -29,6 +32,7 @@ const Home = (): JSX.Element => {
           eficiente. ¡Obtén tu préstamo personal hoy mismo con Cash Money RD y
           haz realidad tus proyectos!
         </p>
+
         <IconButton
           Icon={Send}
           label="Contáctanos"
@@ -38,25 +42,46 @@ const Home = (): JSX.Element => {
           variant="primary"
           loading={false}
           onClick={() => {
-            navigate("#contact");
+            window.location.href = "#contact";
           }}
         />
-      </article>
-      <img
+      </motion.article>
+      <motion.img
         id="img-2"
         src={IllustrationHome2}
         alt="Cashmoney image 2"
         loading="lazy"
+        animate={{ y: [0, 30, 0, 30, 0] }}
+        transition={{
+          ease: "easeInOut",
+          duration: 5,
+          repeat: Infinity,
+          repeatDelay: 1,
+        }}
       />
-      <img
+      <motion.img
         id="img-1"
         src={IllustrationHome1}
         alt="Cashmoney image 1"
         loading="lazy"
+        animate={{ y: [30, 0, 30, 0, 30] }}
+        transition={{
+          ease: "easeInOut",
+          duration: 5,
+          repeat: Infinity,
+          repeatDelay: 1,
+        }}
       />
       <Figure5 id="figure-left" color="var(--primary)" />
       <Figure4 id="figure-right" color="var(--primary)" />
-      <MediaLink href="#services" title="Servicios" Icon={ArrowDown} />
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 250, opacity: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 2 }}
+      >
+        <MediaLink href="#services" title="Servicios" Icon={ArrowDown} />
+      </motion.div>
     </section>
   );
 };

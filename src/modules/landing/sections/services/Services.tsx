@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ArrowUp, DoubleCheck } from "iconoir-react";
 
 import { Figure4, Figure5 } from "@assets/svg";
@@ -17,7 +18,13 @@ import styles from "./Services.module.css";
 const Services = (): JSX.Element => {
   return (
     <section id="services" className={"section" + " " + styles.services}>
-      <article className={styles.serviceDescription}>
+      <motion.article
+        className={styles.serviceDescription}
+        initial={{ x: -150 }}
+        whileInView={{ x: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 2 }}
+      >
         <img
           src={IllustrationServices1}
           alt="Cashmoney servicio descripción"
@@ -37,8 +44,14 @@ const Services = (): JSX.Element => {
             necesitas!
           </p>
         </div>
-      </article>
-      <article className={styles.howWorks}>
+      </motion.article>
+      <motion.article
+        className={styles.howWorks}
+        initial={{ x: 150 }}
+        whileInView={{ x: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 2 }}
+      >
         <img
           src={IllustrationServices2}
           alt="Cashmoney como funciona"
@@ -59,20 +72,54 @@ const Services = (): JSX.Element => {
             intereses acumulados.
           </p>
         </div>
-      </article>
+      </motion.article>
       <article className={styles.requeriments}>
         <h1 className="heading1">Requisitos</h1>
         <p className="buttonText">
           Para aplicar al crédito se debe cumplir con los siguientes requisitos:
         </p>
         <ul className={styles.cardList}>
-          <FeatureCard text="Ser empleado público o privado" />
-          <FeatureCard text="Tarjeta de cobro de nómina (Débito)" />
-          <FeatureCard text="Tarjeta de código" />
-          <FeatureCard text="Acceso al banking" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 1, ease: "easeIn" }}
+          >
+            <FeatureCard text="Ser empleado público o privado" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 2, delay: 1, ease: "easeIn" }}
+          >
+            <FeatureCard text="Tarjeta de cobro de nómina (Débito)" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 2, delay: 2, ease: "easeIn" }}
+          >
+            <FeatureCard text="Tarjeta de código" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 2, delay: 3, ease: "easeIn" }}
+          >
+            <FeatureCard text="Acceso al banking" />
+          </motion.div>
         </ul>
       </article>
-      <article className={styles.steps}>
+      <motion.article
+        className={styles.steps}
+        initial={{ x: -150 }}
+        whileInView={{ x: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 2 }}
+      >
         <img
           src={IllustrationServices3}
           alt="Cashmoney como aplicar a un crédito"
@@ -94,8 +141,14 @@ const Services = (): JSX.Element => {
             <span>4.</span>Ya eres cliente de nuestra empresa!
           </p>
         </div>
-      </article>
-      <article className={styles.formSection}>
+      </motion.article>
+      <motion.article
+        className={styles.formSection}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 2, ease: "easeInOut" }}
+      >
         <h1 className="heading1">Formulario para aplicar a un crédito</h1>
         <p className="buttonText">
           ¿Interesado en solicitar un crédito con nosotros? Por favor, completa
@@ -103,7 +156,7 @@ const Services = (): JSX.Element => {
           para ayudarte en el proceso
         </p>
         <LoanApplicationForm />
-      </article>
+      </motion.article>
 
       <Figure5 id="figure-left" color="var(--white)" />
       <Figure4 id="figure-right" color="var(--white)" />

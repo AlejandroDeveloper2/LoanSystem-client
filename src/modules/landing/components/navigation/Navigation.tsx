@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { MenuScale, Send } from "iconoir-react";
 
 import { navLinks } from "@modules/landing/constants/navData";
@@ -13,7 +12,6 @@ import { LogoLanding } from "@assets/images";
 
 const Navigation = (): JSX.Element => {
   const { isMenuVisible, toggleMenu } = useNav();
-  const navigate = useNavigate();
   const sectionName = window.history.state;
 
   return (
@@ -57,7 +55,7 @@ const Navigation = (): JSX.Element => {
           variant="primary"
           loading={false}
           onClick={() => {
-            navigate("#contact");
+            window.location.href = "#contact";
           }}
         />
       </nav>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Facebook, Instagram, Telegram } from "iconoir-react";
 
 import { MediaLinkList } from "@modules/landing/components";
@@ -9,7 +10,13 @@ import styles from "./Contact.module.css";
 const Contact = (): JSX.Element => {
   return (
     <section className={"section" + " " + styles.contact} id="contact">
-      <article className={styles.contactDescription}>
+      <motion.article
+        className={styles.contactDescription}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false }}
+        transition={{ duration: 2, ease: "easeInOut" }}
+      >
         <img
           src={IllustrationContact1}
           alt="Cashmoney contactanos"
@@ -48,7 +55,7 @@ const Contact = (): JSX.Element => {
             />
           </MediaLinkList>
         </div>
-      </article>
+      </motion.article>
       <Figure5 id="figure-left" color="var(--white)" />
       <Figure4 id="figure-right" color="var(--white)" />
     </section>
