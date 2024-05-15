@@ -2,14 +2,18 @@ import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Facebook, Instagram, Map, Telegram } from "iconoir-react";
 
+import { useIntersectionObserver } from "@modules/landing/hooks";
+
 import { MediaLinkList, Navigation } from "@modules/landing/components";
 
 import styles from "./landingPageLayout.module.css";
 import { LogoLanding } from "@assets/images";
 
 const LandingPageLayout = (): JSX.Element => {
+  const { sectionsRef } = useIntersectionObserver();
+
   return (
-    <main className={styles.layoutContainer}>
+    <main className={styles.layoutContainer} ref={sectionsRef}>
       <Navigation />
       <MediaLinkList>
         <MediaLinkList.Link

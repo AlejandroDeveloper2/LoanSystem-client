@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MenuScale, Send } from "iconoir-react";
 
 import { navLinks } from "@modules/landing/constants/navData";
@@ -13,8 +13,8 @@ import { LogoLanding } from "@assets/images";
 
 const Navigation = (): JSX.Element => {
   const { isMenuVisible, toggleMenu } = useNav();
-  const location = useLocation();
   const navigate = useNavigate();
+  const sectionName = window.history.state;
 
   return (
     <>
@@ -40,7 +40,7 @@ const Navigation = (): JSX.Element => {
               {link.label}
               <span
                 className={
-                  location.hash === link.to
+                  sectionName === link.to
                     ? styles.linkIndicatorActive
                     : styles.linkIndicator
                 }

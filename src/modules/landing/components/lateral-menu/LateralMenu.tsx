@@ -8,6 +8,8 @@ import stylesNav from "../navigation/Navigation.module.css";
 import { LogoLanding } from "@assets/images";
 
 const LateralMenu = ({ isMenuVisible }: LateralMenuProps): JSX.Element => {
+  const sectionName = window.history.state;
+
   return (
     <nav
       className={isMenuVisible ? styles.lateralNav : styles.lateralNavInvisble}
@@ -28,7 +30,7 @@ const LateralMenu = ({ isMenuVisible }: LateralMenuProps): JSX.Element => {
             {link.label}
             <span
               className={
-                location.hash === link.to
+                sectionName === link.to
                   ? stylesNav.linkIndicatorActive
                   : stylesNav.linkIndicator
               }

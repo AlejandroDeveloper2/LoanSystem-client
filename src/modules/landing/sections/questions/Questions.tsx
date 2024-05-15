@@ -8,7 +8,7 @@ import { Figure4, Figure5 } from "@assets/svg";
 
 const Questions = (): JSX.Element => {
   return (
-    <section id="questions" className={styles.questions}>
+    <section id="questions" className={"section" + " " + styles.questions}>
       <article className={styles.description}>
         <img
           src={IllustrationQuestions1}
@@ -41,10 +41,6 @@ const Questions = (): JSX.Element => {
           answer="Se requiere enviar por esta misma vía su carta de trabajo, foto de cédula de identidad y los estados de cuenta de los últimos 3 meses donde se pueda verificar su cobro por nómina. "
           question="¿Qué necesito para pre-aplicar?"
         />
-        {/* <QuestionCard
-          answer="Calle Luis F. Tomen #110 Distrito nacional"
-          question="¿Dónde están ubicadas las oficinas?"
-        /> */}
         <QuestionCard
           answer="Se requiere carta de trabajo, cédula o identificación personal y Estados de cuenta de nómina."
           question="¿Qué documentación se necesita para aplicar a un crédito?"

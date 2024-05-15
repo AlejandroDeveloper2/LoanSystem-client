@@ -8,7 +8,7 @@ import styles from "./Contact.module.css";
 
 const Contact = (): JSX.Element => {
   return (
-    <section className={styles.contact} id="contact">
+    <section className={"section" + " " + styles.contact} id="contact">
       <article className={styles.contactDescription}>
         <img
           src={IllustrationContact1}

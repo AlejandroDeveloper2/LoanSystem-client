@@ -10,14 +10,14 @@ const QuestionCard = ({ answer, question }: QuestionCardProps): JSX.Element => {
       <div className={styles.iconContainer}>
         <QuestionMark />
       </div>
-      <section className={styles.cardContent}>
+      <div className={styles.cardContent}>
         <p id="question-card-text" className="buttonText">
           {question}{" "}
         </p>
         <p id="question-card-answer" className="paragraph">
           {answer}
         </p>
-      </section>
+      </div>
     </div>
   );
 };

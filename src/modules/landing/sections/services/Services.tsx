@@ -16,7 +16,7 @@ import styles from "./Services.module.css";
 
 const Services = (): JSX.Element => {
   return (
-    <section id="services" className={styles.services}>
+    <section id="services" className={"section" + " " + styles.services}>
       <article className={styles.serviceDescription}>
         <img
           src={IllustrationServices1}

@@ -12,7 +12,7 @@ const Home = (): JSX.Element => {
   const navigate = useNavigate();
 
   return (
-    <section className={styles.home} id="home">
+    <section className={"section" + " " + styles.home} id="home">
       <article>
         <h1 className="heading1">
           Cashmoney RD Servicio de préstamos personales

@@ -53,3 +53,9 @@
         align-items: flex-start;
     }
 }
+
+@media (min-width: 1400px) {
+    .cardContainer{
+        width: 95%;
+    }
+}
