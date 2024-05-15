@@ -17,7 +17,7 @@ import styles from "./Services.module.css";
 
 const Services = (): JSX.Element => {
   return (
-    <section id="services" className={"section" + " " + styles.services}>
+    <section id="services" className={styles.services}>
       <motion.article
         className={styles.serviceDescription}
         initial={{ x: -150 }}

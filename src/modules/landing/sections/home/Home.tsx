@@ -10,7 +10,7 @@ import { IllustrationHome1, IllustrationHome2 } from "@assets/images";
 
 const Home = (): JSX.Element => {
   return (
-    <section className={"section" + " " + styles.home} id="home">
+    <section className={styles.home} id="home">
       <motion.article
         initial={{ marginTop: -150, opacity: 0 }}
         whileInView={{ marginTop: 0, opacity: 1 }}

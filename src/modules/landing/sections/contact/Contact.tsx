@@ -9,7 +9,7 @@ import styles from "./Contact.module.css";
 
 const Contact = (): JSX.Element => {
   return (
-    <section className={"section" + " " + styles.contact} id="contact">
+    <section className={styles.contact} id="contact">
       <motion.article
         className={styles.contactDescription}
         initial={{ opacity: 0 }}

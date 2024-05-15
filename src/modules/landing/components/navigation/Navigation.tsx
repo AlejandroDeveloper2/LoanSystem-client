@@ -12,12 +12,11 @@ import { LogoLanding } from "@assets/images";
 
 const Navigation = (): JSX.Element => {
   const { isMenuVisible, toggleMenu } = useNav();
-  const sectionName = window.history.state;
 
   return (
     <>
       <LateralMenu isMenuVisible={isMenuVisible} />
-      <nav className={styles.nav}>
+      <nav className={styles.nav} id="nav1">
         <img
           className={styles.logo}
           src={LogoLanding}
@@ -36,13 +35,7 @@ const Navigation = (): JSX.Element => {
               className={"buttonText" + " " + styles.link}
             >
               {link.label}
-              <span
-                className={
-                  sectionName === link.to
-                    ? styles.linkIndicatorActive
-                    : styles.linkIndicator
-                }
-              ></span>
+              <span className={styles.linkIndicator}></span>
             </a>
           ))}
         </ul>

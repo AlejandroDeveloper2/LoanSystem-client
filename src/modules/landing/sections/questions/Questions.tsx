@@ -9,7 +9,7 @@ import { Figure4, Figure5 } from "@assets/svg";
 
 const Questions = (): JSX.Element => {
   return (
-    <section id="questions" className={"section" + " " + styles.questions}>
+    <section id="questions" className={styles.questions}>
       <motion.article
         className={styles.description}
         initial={{ opacity: 0 }}

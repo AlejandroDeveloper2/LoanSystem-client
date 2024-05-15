@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Facebook, Instagram, Map, Telegram } from "iconoir-react";
@@ -11,6 +12,10 @@ import { LogoLanding } from "@assets/images";
 
 const LandingPageLayout = (): JSX.Element => {
   const { sectionsRef } = useIntersectionObserver();
+
+  useEffect(() => {
+    window.location.href = "#home";
+  }, []);
 
   return (
     <main className={styles.layoutContainer} ref={sectionsRef}>
