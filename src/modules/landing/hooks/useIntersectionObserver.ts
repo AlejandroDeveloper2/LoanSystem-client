@@ -19,6 +19,10 @@ const useIntersectionObserver = () => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          if (entry.target.id !== "home") {
+            nav?.classList.add("navBordered");
+          } else nav?.classList.remove("navBordered");
+
           navLinks?.forEach((link) => {
             if (entry.target.id === link.href.split("#")[1]) {
               link.querySelector("span")?.classList.add("active");
