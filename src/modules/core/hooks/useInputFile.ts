@@ -17,6 +17,10 @@ const useInputFile = () =>
     //   updateFormData(file, inputKey);
     // }, [file]);
 
+    const clearFile = (): void => {
+      setFile("");
+    };
+
     useEffect(() => {
       if (file !== "") setLoadingDoc(false);
     }, [file]);
@@ -25,6 +29,7 @@ const useInputFile = () =>
       file,
       loadingDoc,
       uploadFile,
+      clearFile,
     };
   };
 

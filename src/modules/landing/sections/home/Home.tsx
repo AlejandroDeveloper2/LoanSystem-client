@@ -18,12 +18,16 @@ const Home = (): JSX.Element => {
           Cashmoney RD Servicio de préstamos personales
         </h1>
         <p className="buttonText">
-          ¡Hola! Somos el equipo de Cashmoney RD, y estamos aquí para
-          acompañarte en tus desafíos financieros. Nos dedicamos a encontrar
-          soluciones que se adapten a ti, porque sabemos que cada situación es
-          única. Queremos que te sientas seguro con nosotros, por eso ponemos la
-          transparencia y la confiabilidad en el centro de todo lo que hacemos.
-          Estamos aquí para apoyarte en cada paso de tu camino financiero.
+          Descubre la solución financiera que necesitas con Cash Money RD! Como
+          líderes en el sector, nos enorgullece ofrecerte nuestros préstamos
+          personales para empleados públicos y privados que reciben su salario
+          por nómina. ¿Necesitas cubrir gastos inesperados, realizar un proyecto
+          personal o invertir en tu futuro? ¡No busques más! En Cash Money RD,
+          te ofrecemos tasas de interés competitivas, plazos flexibles de pago y
+          un proceso de solicitud rápido y sencillo. Nuestro compromiso es
+          brindarte la ayuda financiera que necesitas de manera confiable y
+          eficiente. ¡Obtén tu préstamo personal hoy mismo con Cash Money RD y
+          haz realidad tus proyectos!
         </p>
         <IconButton
           Icon={Send}

@@ -12,14 +12,6 @@
     margin:auto;
     z-index:100;
 
-    & i {
-        display: none;
-        svg {
-            width:80px;
-            height: 80px;
-        }
-    }
-
     button[id="btn-contact"]{
         width: auto;
         padding:var(--spacing-xl) var(--spacing-4xl);
@@ -119,5 +111,18 @@
             transform: translateX(0);
             opacity: 1;
         }
+    }
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: none; 
+}
+
+@media (min-width: 1400px){
+    .logo{
+        display: block; 
     }
 }

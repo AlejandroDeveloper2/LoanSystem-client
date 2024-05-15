@@ -1,7 +1,11 @@
 import { ArrowUp, DoubleCheck } from "iconoir-react";
 
 import { Figure4, Figure5 } from "@assets/svg";
-import { FeatureCard, MediaLink } from "@modules/landing/components";
+import {
+  FeatureCard,
+  LoanApplicationForm,
+  MediaLink,
+} from "@modules/landing/components";
 
 import {
   IllustrationServices1,
@@ -22,15 +26,15 @@ const Services = (): JSX.Element => {
         <div className={styles.text}>
           <h1 className="heading1">Nuestro Servicio</h1>
           <p className="buttonText">
-            Sabemos que a veces la vida te presenta desafíos financieros
-            inesperados y que necesitas un poco de ayuda para superarlos. En
-            Cashmoney RD, nos preocupamos por ti y queremos ser ese apoyo en
-            momentos difíciles. Ya sea que estés pensando en consolidar tus
-            deudas, darle un nuevo aire a tu hogar o simplemente necesites
-            cubrir gastos imprevistos, estamos aquí para ofrecerte soluciones
-            financieras adaptadas a tu situación. Nos comprometemos a hacer que
-            el proceso sea lo más fácil y claro posible, para que puedas obtener
-            el dinero que necesitas y seguir adelante con tranquilidad.
+            Somos más que un equipo, somos tu aliado en los desafíos
+            financieros. En Cash Money RD, nos dedicamos a encontrar soluciones
+            a medida para cada cliente, reconociendo que cada situación es
+            única. Nuestro compromiso es brindarte seguridad y confianza en cada
+            paso del proceso. No solo somos un negocio, sino también una mano
+            amiga en momentos de inoportunidad o imprevistos financieros.
+            Estamos aquí para ayudarte a superar cualquier obstáculo y alcanzar
+            tus metas. ¡Confía en nosotros para encontrar la solución que
+            necesitas!
           </p>
         </div>
       </article>
@@ -43,39 +47,16 @@ const Services = (): JSX.Element => {
         <div className={styles.text}>
           <h1 className="heading1">¿Cómo funciona?</h1>
           <p className="buttonText">
-            <DoubleCheck /> Los préstamos personales tienen una{" "}
-            <span>tasa mensual de un 7%.</span>
+            <DoubleCheck /> Ofrecemos préstamos personales con una{" "}
+            <span>tasa de interés mensual del 7%</span>, garantizando
+            transparencia y estabilidad en tus pagos.
           </p>
           <p className="buttonText">
             <DoubleCheck />
-            Se paga por cuotas: capital e interés junto hasta finalizar el
-            préstamo.
-          </p>
-        </div>
-      </article>
-      <article className={styles.steps}>
-        <img
-          src={IllustrationServices3}
-          alt="Cashmoney como aplicar a un crédito"
-          loading="lazy"
-        />
-        <div className={styles.text}>
-          <h1 className="heading1">Pasos para aplicar a un crédito</h1>
-          <p className="buttonText">
-            <span>1.</span> Llenar el formulario inicial con los datos
-            requeridos en la sección de contáctenos.
-          </p>
-          <p className="buttonText">
-            <span>2.</span> Esperar la respuesta de nuestro equipo via{" "}
-            <span>WhastApp.</span>
-          </p>
-          <p className="buttonText">
-            <span>3.</span> En caso de cumplir con los requisitos y
-            documentación requerida se le enviará un link via email o WhasApp
-            para realizar la solicitud de préstamo online.
-          </p>
-          <p className="buttonText">
-            <span>4.</span> Ya eres cliente de nuestra empresa!
+            Puedes optar por realizar tus pagos de manera flexible, adaptándolos
+            a tu ritmo de ingresos por nóminas, ya sea en cuotas semanales,
+            quincenales o mensuales, cubriendo tanto el capital como los
+            intereses acumulados.
           </p>
         </div>
       </article>
@@ -91,6 +72,39 @@ const Services = (): JSX.Element => {
           <FeatureCard text="Acceso al banking" />
         </ul>
       </article>
+      <article className={styles.steps}>
+        <img
+          src={IllustrationServices3}
+          alt="Cashmoney como aplicar a un crédito"
+          loading="lazy"
+        />
+        <div className={styles.text}>
+          <h1 className="heading1">Aplica aquí</h1>
+          <p className="buttonText">
+            <span>1.</span> Llenar la pre-solicitud con los datos requeridos.
+          </p>
+          <p className="buttonText">
+            <span>2.</span> Recibirá un correo de nuestro equipo pre-aprobando
+            el préstamo.
+          </p>
+          <p className="buttonText">
+            <span>3.</span> Completar solicitud.
+          </p>
+          <p className="buttonText">
+            <span>4.</span>Ya eres cliente de nuestra empresa!
+          </p>
+        </div>
+      </article>
+      <article className={styles.formSection}>
+        <h1 className="heading1">Formulario para aplicar a un crédito</h1>
+        <p className="buttonText">
+          ¿Interesado en solicitar un crédito con nosotros? Por favor, completa
+          el siguiente formulario con tus datos correspondientes. Estamos listos
+          para ayudarte en el proceso
+        </p>
+        <LoanApplicationForm />
+      </article>
+
       <Figure5 id="figure-left" color="var(--white)" />
       <Figure4 id="figure-right" color="var(--white)" />
       <MediaLink href="#home" title="Inicio" Icon={ArrowUp} />

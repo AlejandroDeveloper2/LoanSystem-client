@@ -10,7 +10,9 @@ const FeatureCard = ({ text }: FeatureCardProps): JSX.Element => {
       <div className={styles.iconContainer}>
         <DoubleCheck />
       </div>
-      <p className="buttonText">{text}</p>
+      <p id="card-text" className="buttonText">
+        {text}
+      </p>
     </div>
   );
 };

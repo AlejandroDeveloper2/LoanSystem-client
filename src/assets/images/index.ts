@@ -6,3 +6,6 @@ export { default as IllustrationHome2 } from "./landing-page-images/illustration
 export { default as IllustrationServices1 } from "./landing-page-images/illustration-services1.png";
 export { default as IllustrationServices2 } from "./landing-page-images/illustration-services2.png";
 export { default as IllustrationServices3 } from "./landing-page-images/illustration-services3.png";
+export { default as IllustrationQuestions1 } from "./landing-page-images/illustration-questions1.png";
+export { default as IllustrationContact1 } from "./landing-page-images/illustration-contact1.png";
+export { default as LogoLanding } from "./landing-page-images/logo-landing.png";

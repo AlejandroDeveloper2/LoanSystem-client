@@ -10,6 +10,10 @@
     gap:var(--spacing-5xl);
     position:relative;
 
+    form {
+        background-color:var(--white);
+    }
+
     & svg[id="figure-left"] {
         left:0;
         bottom:0;
@@ -45,14 +49,13 @@
     }
 }
 
-.requeriments{
+.requeriments, .formSection{
     width: 340px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap:var(--spacing-4xl);
-    margin-bottom: var(--spacing-4xl);
 
     h1 {
         color:var(--white);
@@ -60,6 +63,21 @@
         text-align: center;
     }
 
+    p {
+        color:var(--white);
+        text-align:left;
+        font-weight: 400;
+        white-space: pre-wrap;
+    }
+}
+
+.formSection{
+    margin-bottom:var(--spacing-4xl);
+    h1{
+        color:var(--white);
+        font-weight: bold;
+        text-align: center;
+    }
     p {
         color:var(--white);
         text-align:left;
@@ -114,7 +132,7 @@
             transform: scale(0.8);
         }
     }
-    .requeriments{
+    .requeriments,.formSection{
         width: 680px;
     }
     .text{
@@ -133,7 +151,7 @@
 }
 
 @media (min-width: 1400px) {
-    .requeriments{
+    .requeriments, .formSection{
         width: 1000px;
     }
     .serviceDescription,.howWorks,.steps{

@@ -9,7 +9,7 @@
     align-items: center;
     gap:var(--spacing-xl);
 
-    p{
+    p[id="card-text"]{
         color:var(--primary);
         font-weight: normal;
         text-align: center;

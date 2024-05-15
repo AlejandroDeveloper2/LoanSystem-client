@@ -5,10 +5,11 @@ import { navLinks } from "@modules/landing/constants/navData";
 
 import { useNav } from "@modules/landing/hooks";
 
-import { IconButton, Logo } from "@modules/core/components";
+import { IconButton } from "@modules/core/components";
 import { LateralMenu } from "..";
 
 import styles from "./Navigation.module.css";
+import { LogoLanding } from "@assets/images";
 
 const Navigation = (): JSX.Element => {
   const { isMenuVisible, toggleMenu } = useNav();
@@ -19,7 +20,12 @@ const Navigation = (): JSX.Element => {
     <>
       <LateralMenu isMenuVisible={isMenuVisible} />
       <nav className={styles.nav}>
-        <Logo />
+        <img
+          className={styles.logo}
+          src={LogoLanding}
+          alt="Logo cashmoney"
+          loading="lazy"
+        />
         <button id="btn-menu" className={styles.menu} onClick={toggleMenu}>
           <MenuScale />
           <span className="buttonText">Menú</span>

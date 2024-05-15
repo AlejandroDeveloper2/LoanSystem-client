@@ -1,4 +1,4 @@
-import { Home, Questions, Services } from "@modules/landing/sections";
+import { Home, Questions, Services, Contact } from "@modules/landing/sections";
 
 const LandingPage = (): JSX.Element => {
   return (
@@ -6,6 +6,7 @@ const LandingPage = (): JSX.Element => {
       <Home />
       <Services />
       <Questions />
+      <Contact />
     </>
   );
 };

@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
-import { Facebook, Instagram, Telegram } from "iconoir-react";
+import { ToastContainer } from "react-toastify";
+import { Facebook, Instagram, Map, Telegram } from "iconoir-react";
 
 import { MediaLinkList, Navigation } from "@modules/landing/components";
 
 import styles from "./landingPageLayout.module.css";
+import { LogoLanding } from "@assets/images";
 
 const LandingPageLayout = (): JSX.Element => {
   return (
@@ -30,6 +32,25 @@ const LandingPageLayout = (): JSX.Element => {
         />
       </MediaLinkList>
       <Outlet />
+      <footer className={styles.footer}>
+        <figure className={styles.figure}>
+          <img
+            className={styles.logo}
+            src={LogoLanding}
+            alt="Logo cashmoney"
+            loading="lazy"
+          />
+          <span className="paragraph">Cash Money RD</span>
+        </figure>
+        <p className="paragraph">
+          <Map />
+          Calle Luis F. Thomen 110, Evaristo Morales, D.N.
+        </p>
+        <p className="paragraph">
+          Cashmoneyrd.com Todos los derechos reservados ©
+        </p>
+      </footer>
+      <ToastContainer position="bottom-right" autoClose={3000} />
     </main>
   );
 };

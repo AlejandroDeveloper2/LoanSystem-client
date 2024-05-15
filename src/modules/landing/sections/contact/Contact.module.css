@@ -1,5 +1,5 @@
-.questions{
-    background-color: var(--white);
+.contact{
+    background-color: var(--primary);
     width: 100%;
     height: auto;
     display: flex;
@@ -22,14 +22,10 @@
         position: absolute;
     }
 
-    a {
-        position: absolute;
-        bottom: 20px;
-        left: 0;
-        right: 0;
-        margin: auto;
-        width: 60px;
-        height: 60px;
+    ul {
+        position: relative;
+        flex-direction: row;
+        z-index: 0;
     }
 }
 
@@ -42,75 +38,47 @@
     gap:var(--spacing-md);  
 
     h1{
-        color:var(--primary);
+        color:var(--white);
         font-weight: bold;
         text-align: center;
     }
     p {
-        color:var(--primary);
+        color:var(--white);
         text-align:left;
         font-weight: 400;
         white-space: pre-wrap;
         span{
             font-weight: bold;
         }
-        svg {
-            color: var(--white);
-            margin-right:var(--spacing-sm);
-            width: 20px;
-            height: 20px;
-        }
     }
 }
 
-.description{
+.contactDescription, .formSection{
     width: 340px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap:var(--spacing-4xl);
-    margin-bottom: var(--spacing-4xl);
 
     img {
         transform: scale(0.6);
     }
 }
 
-.cardList{
-    display: flex;
-    flex-direction: column;
-    gap:var(--spacing-md);
-    justify-content: center;
-    align-items: center;
-    margin-bottom: var(--spacing-4xl);
-}
 
 @media (min-width: 768px) {
-    .description{
+    .contactDescription{
         width: 680px;
         gap:var(--spacing-4xl);
         img {
             transform: scale(0.8);
         }
     }
-    .text{
-        svg {
-            width: 24px;
-            height: 24px;
-        }
-    }
-
-    .questions {
-        a {
-            width: 80px;
-            height: 80px;
-        }
-    }
 }
 
 @media (min-width: 1400px) {
-    .description{
+    .contactDescription{
         flex-direction: row;
         width: 1000px;
         img {
