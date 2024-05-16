@@ -3,9 +3,10 @@ interface ApplicationFormData {
   phone: string;
   email: string;
   amount: string;
-  identification: Blob | string;
-  workLetter: Blob | string;
-  payrollStatements: Blob | string;
+  jobPlace: string;
+  // monthlySalary: string;
+  // hasWorkLetter: "Yes" | "Not" | string;
+  // hasLastAccountStates: "Yes" | "Not" | string;
 }
 
 export type { ApplicationFormData };

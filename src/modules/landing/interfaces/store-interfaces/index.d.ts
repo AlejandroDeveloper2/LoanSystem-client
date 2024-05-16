@@ -1,6 +1,8 @@
+import { ApplicationFormData } from "../data-interfaces";
+
 export interface SendEmailStore {
   sendEmail: (
-    formRef: React.RefObject<HTMLFormElement>,
+    formParams: ApplicationFormData,
     toggleLoading: (message: string, isLoading: boolean) => void
   ) => Promise<void>;
 }

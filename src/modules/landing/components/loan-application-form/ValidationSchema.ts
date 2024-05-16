@@ -34,24 +34,30 @@ export const validationSchema = async (
       )
     )
     .catch((error: FieldErrorType) => error),
-  identification: await formValidations
-    .validateEmptyFields(
-      String(formData.identification),
-      "identification",
-      formRef
-    )
+  jobPlace: await formValidations
+    .validateEmptyFields(formData.jobPlace, "jobPlace", formRef)
     .then((wrongInput) => wrongInput)
     .catch((error: FieldErrorType) => error),
-  workLetter: await formValidations
-    .validateEmptyFields(String(formData.workLetter), "workLetter", formRef)
-    .then((wrongInput) => wrongInput)
-    .catch((error: FieldErrorType) => error),
-  payrollStatements: await formValidations
-    .validateEmptyFields(
-      String(formData.payrollStatements),
-      "payrollStatements",
-      formRef
-    )
-    .then((wrongInput) => wrongInput)
-    .catch((error: FieldErrorType) => error),
+  // monthlySalary: await formValidations
+  //   .validateEmptyFields(formData.monthlySalary, "monthlySalary", formRef)
+  //   .then(() =>
+  //     formValidations.validateNumericFields(
+  //       parseInt(formData.monthlySalary),
+  //       "monthlySalary",
+  //       formRef
+  //     )
+  //   )
+  //   .catch((error: FieldErrorType) => error),
+  // hasWorkLetter: await formValidations
+  //   .validateEmptyFields(formData.hasWorkLetter, "hasWorkLetter", formRef)
+  //   .then((wrongInput) => wrongInput)
+  //   .catch((error: FieldErrorType) => error),
+  // hasLastAccountStates: await formValidations
+  //   .validateEmptyFields(
+  //     formData.hasLastAccountStates,
+  //     "hasLastAccountStates",
+  //     formRef
+  //   )
+  //   .then((wrongInput) => wrongInput)
+  //   .catch((error: FieldErrorType) => error),
 });

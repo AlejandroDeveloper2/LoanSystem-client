@@ -6,9 +6,10 @@ export const initialValues: ApplicationFormData = {
   phone: "",
   email: "",
   amount: "",
-  identification: "",
-  workLetter: "",
-  payrollStatements: "",
+  jobPlace: "",
+  // monthlySalary: "",
+  // hasWorkLetter: "",
+  // hasLastAccountStates: "",
 };
 
 export const initialErrors: WrongInput = {
@@ -28,16 +29,20 @@ export const initialErrors: WrongInput = {
     message: "",
     error: false,
   },
-  identification: {
+  jobPlace: {
     message: "",
     error: false,
   },
-  workLetter: {
-    message: "",
-    error: false,
-  },
-  payrollStatements: {
-    message: "",
-    error: false,
-  },
+  // monthlySalary: {
+  //   message: "",
+  //   error: false,
+  // },
+  // hasWorkLetter: {
+  //   message: "",
+  //   error: false,
+  // },
+  // hasLastAccountStates: {
+  //   message: "",
+  //   error: false,
+  // },
 };

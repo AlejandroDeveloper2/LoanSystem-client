@@ -1,12 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
 import {
   AtSign,
+  Building,
   Coins,
   Message,
   Phone,
   Send,
-  Upload,
   User,
 } from "iconoir-react";
 
@@ -17,7 +15,7 @@ import {
   initialErrors,
 } from "@modules/landing/constants/loanApplicationInitialValues";
 
-import { useForm, useInputFile, useLoading } from "@modules/core/hooks";
+import { useForm, useLoading } from "@modules/core/hooks";
 import { useSendEmailStore } from "@modules/landing/state-store";
 import { validationSchema } from "./ValidationSchema";
 
@@ -25,62 +23,22 @@ import { Form } from "@modules/core/components";
 
 const LoanApplicationForm = (): JSX.Element => {
   const action = () => {
-    sendEmail(formRef, toggleLoading).then(() => {
+    sendEmail(formData, toggleLoading).then(() => {
       clearForm();
-      clearId();
-      clearWorkLetter();
-      clearPayrollStatements();
     });
   };
 
   const { sendEmail } = useSendEmailStore();
   const { loading, toggleLoading } = useLoading();
 
-  const {
-    formData,
-    formRef,
-    errors,
-    handleChange,
-    handleSubmit,
-    clearForm,
-    updateFormInitialValues,
-  } = useForm<ApplicationFormData>(
-    initialValues,
-    initialErrors,
-    "add",
-    validationSchema,
-    action
-  );
-
-  const {
-    file: identification,
-    loadingDoc: loadingId,
-    uploadFile: uploadId,
-    clearFile: clearId,
-  } = useInputFile();
-
-  const {
-    file: workLetter,
-    loadingDoc: loadingWorkLetter,
-    uploadFile: uploadWorkLetter,
-    clearFile: clearWorkLetter,
-  } = useInputFile();
-
-  const {
-    file: payrollStatements,
-    loadingDoc: loadingPayrollStatements,
-    uploadFile: uploadPayrollStatements,
-    clearFile: clearPayrollStatements,
-  } = useInputFile();
-
-  useEffect(() => {
-    updateFormInitialValues({
-      ...formData,
-      identification,
-      workLetter,
-      payrollStatements,
-    });
-  }, [identification, workLetter, payrollStatements]);
+  const { formData, formRef, errors, handleChange, handleSubmit, clearForm } =
+    useForm<ApplicationFormData>(
+      initialValues,
+      initialErrors,
+      "add",
+      validationSchema,
+      action
+    );
 
   return (
     <Form
@@ -134,42 +92,54 @@ const LoanApplicationForm = (): JSX.Element => {
           Icon={Coins}
           onChange={handleChange}
         />
-        <Form.InputFile
-          Icon={Upload}
-          value={identification}
-          label="Subir cédula"
-          id="identification"
-          title="Seleccionar documento"
-          fileName="cédula"
-          variant="neutral"
-          errorMessage={errors["identification"].message}
-          loading={loadingId}
-          onChange={uploadId}
+        <Form.Input
+          id="jobPlace"
+          name="jobPlace"
+          label="Lugar de trabajo"
+          type="text"
+          placeholder="Digita el lugar de trabajo"
+          value={formData.jobPlace}
+          errorMessage={errors["jobPlace"].message}
+          Icon={Building}
+          onChange={handleChange}
         />
-        <Form.InputFile
-          Icon={Upload}
-          value={workLetter}
-          label="Subir carta de trabajo"
-          id="workLetter"
-          title="Seleccionar documento"
-          fileName="carta-de-trabajo"
-          variant="neutral"
-          errorMessage={errors["workLetter"].message}
-          loading={loadingWorkLetter}
-          onChange={uploadWorkLetter}
+        {/* <Form.Input
+          id="monthlySalary"
+          name="monthlySalary"
+          label="Salario mensual"
+          type="number"
+          placeholder="Digita tu salario mensual"
+          value={formData.monthlySalary}
+          errorMessage={errors["monthlySalary"].message}
+          Icon={Cash}
+          onChange={handleChange}
         />
-        <Form.InputFile
-          Icon={Upload}
-          value={payrollStatements}
-          label="Subir estados de nómina"
-          id="payrollStatements"
-          title="Seleccionar documento"
-          fileName="estados-de-cuentas-nómina"
-          variant="neutral"
-          errorMessage={errors["payrollStatements"].message}
-          loading={loadingPayrollStatements}
-          onChange={uploadPayrollStatements}
+        <Form.Select
+          id="hasWorkLetter"
+          name="hasWorkLetter"
+          label="¿Tiene carta de trabajo? *"
+          value={formData.hasWorkLetter}
+          errorMessage={errors["hasWorkLetter"].message}
+          options={[
+            { label: "Si", value: "Yes" },
+            { label: "No", value: "Not" },
+          ]}
+          Icon={QuestionMark}
+          onChange={handleChange}
         />
+        <Form.Select
+          id="hasLastAccountStates"
+          name="hasLastAccountStates"
+          label="¿Tiene los últimos 3 estados de cuenta de su nómina? *"
+          value={formData.hasLastAccountStates}
+          errorMessage={errors["hasLastAccountStates"].message}
+          options={[
+            { label: "Si", value: "Yes" },
+            { label: "No", value: "Not" },
+          ]}
+          Icon={QuestionMark}
+          onChange={handleChange}
+        /> */}
       </Form.FieldSet>
       <Form.IconButton
         id="button-send"
