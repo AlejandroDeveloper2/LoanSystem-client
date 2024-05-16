@@ -83,7 +83,7 @@ const Services = (): JSX.Element => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
-            transition={{ duration: 1, ease: "easeIn" }}
+            transition={{ duration: 0.5, ease: "easeIn" }}
           >
             <FeatureCard text="Ser empleado público o privado" />
           </motion.div>
@@ -91,7 +91,7 @@ const Services = (): JSX.Element => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
-            transition={{ duration: 2, delay: 1, ease: "easeIn" }}
+            transition={{ duration: 0.5, delay: 0.5, ease: "easeIn" }}
           >
             <FeatureCard text="Tarjeta de cobro de nómina (Débito)" />
           </motion.div>
@@ -99,7 +99,7 @@ const Services = (): JSX.Element => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
-            transition={{ duration: 2, delay: 2, ease: "easeIn" }}
+            transition={{ duration: 0.5, delay: 1, ease: "easeIn" }}
           >
             <FeatureCard text="Tarjeta de código" />
           </motion.div>
@@ -107,7 +107,7 @@ const Services = (): JSX.Element => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
-            transition={{ duration: 2, delay: 3, ease: "easeIn" }}
+            transition={{ duration: 0.5, delay: 1.5, ease: "easeIn" }}
           >
             <FeatureCard text="Acceso al banking" />
           </motion.div>

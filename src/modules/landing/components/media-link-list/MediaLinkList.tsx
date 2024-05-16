@@ -5,7 +5,7 @@ import { MediaLink } from "..";
 import styles from "./MediaLinkList.module.css";
 
 const MediaLinkList = ({ children }: MediaLinkListProps): JSX.Element => {
-  return <ol className={styles.mediaLinkList}>{children}</ol>;
+  return <ul className={styles.mediaLinkList}>{children}</ul>;
 };
 
 MediaLinkList.Link = MediaLink;
