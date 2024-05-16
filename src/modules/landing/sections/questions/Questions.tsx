@@ -40,7 +40,7 @@ const Questions = (): JSX.Element => {
           transition={{ duration: 1.5 }}
         >
           <QuestionCard
-            answer="El monto máximo por primera vez es de $20,0000 pesos."
+            answer="El monto máximo por primera vez es de $20,000 pesos."
             question="¿Cuál es el monto máximo que puedo solicitar por primera vez?"
           />
         </motion.div>
