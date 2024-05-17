@@ -3,7 +3,8 @@ interface ApplicationFormData {
   phone: string;
   email: string;
   amount: string;
-  jobPlace: string;
+  extraInfo: string;
+  // jobPlace: string;
   // monthlySalary: string;
   // hasWorkLetter: "Yes" | "Not" | string;
   // hasLastAccountStates: "Yes" | "Not" | string;

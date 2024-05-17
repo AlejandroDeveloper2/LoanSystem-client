@@ -1,6 +1,6 @@
 import {
+  AlignCenter,
   AtSign,
-  Building,
   Coins,
   Message,
   Phone,
@@ -92,15 +92,15 @@ const LoanApplicationForm = (): JSX.Element => {
           Icon={Coins}
           onChange={handleChange}
         />
-        <Form.Input
-          id="jobPlace"
-          name="jobPlace"
-          label="Lugar de trabajo"
-          type="text"
-          placeholder="Digita el lugar de trabajo"
-          value={formData.jobPlace}
-          errorMessage={errors["jobPlace"].message}
-          Icon={Building}
+        <Form.TextArea
+          id="extraInfo"
+          name="extraInfo"
+          label="Información adicional"
+          placeholder="Describa su información"
+          value={formData.extraInfo}
+          errorMessage={errors["extraInfo"].message}
+          Icon={AlignCenter}
+          userHint="Indique salario mensual, lugar de trabajo y si cuenta con carta de trabajo y con los últimos 3 estados de cuenta de su nómina"
           onChange={handleChange}
         />
         {/* <Form.Input

@@ -21,7 +21,7 @@ export class SendEmailService {
           phone: formParams.phone,
           email: formParams.email,
           amount: formParams.amount,
-          jobPlace: formParams.jobPlace,
+          extraInfo: formParams.extraInfo,
           // extraInfo: {
           //   jobPlace: formParams.jobPlace,
           //   monthlySalary: formParams.monthlySalary,

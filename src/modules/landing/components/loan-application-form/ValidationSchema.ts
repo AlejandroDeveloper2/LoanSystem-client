@@ -34,8 +34,8 @@ export const validationSchema = async (
       )
     )
     .catch((error: FieldErrorType) => error),
-  jobPlace: await formValidations
-    .validateEmptyFields(formData.jobPlace, "jobPlace", formRef)
+  extraInfo: await formValidations
+    .validateEmptyFields(formData.extraInfo, "extraInfo", formRef)
     .then((wrongInput) => wrongInput)
     .catch((error: FieldErrorType) => error),
   // monthlySalary: await formValidations

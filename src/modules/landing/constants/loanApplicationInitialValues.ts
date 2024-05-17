@@ -6,7 +6,8 @@ export const initialValues: ApplicationFormData = {
   phone: "",
   email: "",
   amount: "",
-  jobPlace: "",
+  extraInfo:
+    "-Salario Mensual:$--- ;\n-Lugar de trabajo:--- ;\n -¿Tiene carta de trabajo?:---;\n -¿Tiene los últimos 3 estados de cuenta de su nómina?:---;",
   // monthlySalary: "",
   // hasWorkLetter: "",
   // hasLastAccountStates: "",
@@ -29,7 +30,7 @@ export const initialErrors: WrongInput = {
     message: "",
     error: false,
   },
-  jobPlace: {
+  extraInfo: {
     message: "",
     error: false,
   },
