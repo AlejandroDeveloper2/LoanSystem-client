@@ -12,11 +12,6 @@
     margin:auto;
     z-index:100;
 
-    button[id="btn-contact"]{
-        width: auto;
-        padding:var(--spacing-xl) var(--spacing-4xl);
-    }
-
     @media(min-width:1400px) {
         width: 90%;
         & i {
@@ -27,6 +22,33 @@
         }
         border-bottom-left-radius: var(--radius-md);
         border-bottom-right-radius: var(--radius-md);
+    }
+}
+
+.options{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap:var(--spacing-md);
+
+    button[id="btn-contact"]{
+        display: none;
+    }
+    
+    button[id="btn-contact"], button[id="btn-login"]{
+        width: auto;
+        padding:var(--spacing-xl) var(--spacing-4xl);
+    }
+}
+
+@media(min-width:768px){
+    .options{
+        button[id="btn-contact"]{
+            display: flex;
+        }
+        button[id="btn-contact"], button[id="btn-login"]{
+            padding:var(--spacing-2xl) var(--spacing-4xl);
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-import { MenuScale, Send } from "iconoir-react";
+import { LogIn, MenuScale, Send } from "iconoir-react";
 
 import { navLinks } from "@modules/landing/constants/navData";
 
@@ -9,20 +9,24 @@ import { LateralMenu } from "..";
 
 import styles from "./Navigation.module.css";
 import { LogoLanding } from "@assets/images";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = (): JSX.Element => {
   const { isMenuVisible, toggleMenu } = useNav();
+  const navigate = useNavigate();
 
   return (
     <>
       <LateralMenu isMenuVisible={isMenuVisible} />
       <nav className={styles.nav} id="nav1">
-        <img
-          className={styles.logo}
-          src={LogoLanding}
-          alt="Logo cashmoney"
-          loading="lazy"
-        />
+        <a href="#home" className={"buttonText" + " " + styles.link}>
+          <img
+            className={styles.logo}
+            src={LogoLanding}
+            alt="Logo cashmoney"
+            loading="lazy"
+          />
+        </a>
         <button id="btn-menu" className={styles.menu} onClick={toggleMenu}>
           <MenuScale />
           <span className="buttonText">Menú</span>
@@ -39,18 +43,30 @@ const Navigation = (): JSX.Element => {
             </a>
           ))}
         </ul>
-        <IconButton
-          Icon={Send}
-          label="Contáctanos"
-          id="btn-contact"
-          type="button"
-          title="Ponte en contacto con nosotros"
-          variant="primary"
-          loading={false}
-          onClick={() => {
-            window.location.href = "#contact";
-          }}
-        />
+        <menu className={styles.options}>
+          <IconButton
+            Icon={Send}
+            label="Contáctanos"
+            id="btn-contact"
+            type="button"
+            title="Ponte en contacto con nosotros"
+            variant="primary"
+            loading={false}
+            onClick={() => {
+              window.location.href = "#contact";
+            }}
+          />
+          <IconButton
+            Icon={LogIn}
+            label="Iniciar sesión"
+            id="btn-login"
+            type="button"
+            title="Iniciar Sesión"
+            variant="neutral"
+            loading={false}
+            onClick={() => navigate("/login")}
+          />
+        </menu>
       </nav>
     </>
   );
