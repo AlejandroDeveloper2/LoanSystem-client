@@ -63,7 +63,7 @@ const RecoverPassForm = (): JSX.Element => {
       <CustomLink
         label="Volver al inicio de sesión"
         linkText="Click aqui"
-        to="/"
+        to="/login"
       />
     </Form>
   );
