@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Facebook, Instagram, Map, Telegram } from "iconoir-react";
+import { Instagram, Map } from "iconoir-react";
 
 import { useIntersectionObserver } from "@modules/landing/hooks";
 
@@ -21,24 +21,24 @@ const LandingPageLayout = (): JSX.Element => {
     <main className={styles.layoutContainer} ref={sectionsRef}>
       <Navigation />
       <MediaLinkList>
-        <MediaLinkList.Link
+        {/* <MediaLinkList.Link
           Icon={Facebook}
           title="Facebook"
           href="#"
           external
-        />
+        /> */}
         <MediaLinkList.Link
           Icon={Instagram}
           title="Instagram"
-          href="#"
+          href="https://www.instagram.com/cashmoneyrd?igsh=czk2bXRsbmR2Z2hv"
           external
         />
-        <MediaLinkList.Link
+        {/* <MediaLinkList.Link
           Icon={Telegram}
           title="Instagram"
           href="#"
           external
-        />
+        /> */}
       </MediaLinkList>
       <Outlet />
       <footer className={styles.footer}>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Telegram } from "iconoir-react";
+import { Instagram } from "iconoir-react";
 
 import { MediaLinkList } from "@modules/landing/components";
 import { Figure4, Figure5 } from "@assets/svg";
@@ -35,24 +35,24 @@ const Contact = (): JSX.Element => {
             ansiosos por escucharte.
           </p>
           <MediaLinkList>
-            <MediaLinkList.Link
+            {/* <MediaLinkList.Link
               Icon={Facebook}
               title="Facebook"
               href="#"
               external
-            />
+            /> */}
             <MediaLinkList.Link
               Icon={Instagram}
               title="Instagram"
-              href="#"
+              href="https://www.instagram.com/cashmoneyrd?igsh=czk2bXRsbmR2Z2hv"
               external
             />
-            <MediaLinkList.Link
+            {/* <MediaLinkList.Link
               Icon={Telegram}
               title="Instagram"
               href="#"
               external
-            />
+            /> */}
           </MediaLinkList>
         </div>
       </motion.article>
