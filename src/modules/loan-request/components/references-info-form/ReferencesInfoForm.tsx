@@ -32,7 +32,7 @@ const ReferencesInfoForm = (): JSX.Element => {
 
   const { currentStepData, saveStepFormData, fillFormStepData } =
     useFormStepper<ReferencesData>(
-      "/loanRequest/personalReferences",
+      "/loanRequest/referencesInfo",
       "personalReference",
       toggleLoading
     );

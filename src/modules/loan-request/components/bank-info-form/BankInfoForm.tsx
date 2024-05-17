@@ -22,7 +22,7 @@ const BankInfoForm = (): JSX.Element => {
 
   const { saveStepFormData, fillFormStepData } =
     useFormStepper<BankAccountDataForm>(
-      "/loanRequest/personalReferences",
+      "/loanRequest/referencesInfo",
       "bankAccount"
     );
 

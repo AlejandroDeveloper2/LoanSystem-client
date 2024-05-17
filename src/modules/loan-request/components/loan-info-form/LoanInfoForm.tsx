@@ -28,7 +28,7 @@ const LoanInfoForm = (): JSX.Element => {
   }
 
   const { currentStepData, saveStepFormData, fillFormStepData } =
-    useFormStepper<LoanDataForm>("/loanRequest/bankAccountData", "loan");
+    useFormStepper<LoanDataForm>("/loanRequest/bankInfo", "loan");
 
   const {
     formData,

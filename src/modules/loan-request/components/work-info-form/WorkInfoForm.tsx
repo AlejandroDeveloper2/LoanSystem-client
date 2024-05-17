@@ -30,7 +30,7 @@ const WorkInfoForm = (): JSX.Element => {
     saveStepFormData(formData);
   }
   const { fillFormStepData, saveStepFormData } = useFormStepper<WorkDataForm>(
-    "/loanRequest/loanData",
+    "/loanRequest/loanInfo",
     "workingInformation"
   );
   const {

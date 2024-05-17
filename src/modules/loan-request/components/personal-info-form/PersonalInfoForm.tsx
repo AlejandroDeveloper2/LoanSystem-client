@@ -31,7 +31,7 @@ const PersonalInfoForm = (): JSX.Element => {
     saveStepFormData(formData);
   }
   const { fillFormStepData, saveStepFormData } =
-    useFormStepper<PersonalDataForm>("/loanRequest/workData", "client");
+    useFormStepper<PersonalDataForm>("/loanRequest/workInfo", "client");
   const {
     formData,
     formRef,

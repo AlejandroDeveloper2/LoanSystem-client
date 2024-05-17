@@ -24,7 +24,7 @@ const useFormStepper = <T>(
   const stepDataLS: FormStepData = stepData
     ? window.JSON.parse(stepData)
     : {
-        stepName: "/loanRequest/personalData",
+        stepName: "/loanRequest/personalInfo",
         completedForms: 0,
         formData: initialStepperFormValues,
       };
@@ -51,7 +51,7 @@ const useFormStepper = <T>(
       navigate("/loanRequest");
       window.localStorage.clear();
       setCurrentStepData({
-        stepName: "/loanRequest/personalData",
+        stepName: "/loanRequest/personalInfo",
         completedForms: 0,
         formData: initialStepperFormValues,
       });
