@@ -95,12 +95,11 @@ const LoanApplicationForm = (): JSX.Element => {
         <Form.TextArea
           id="extraInfo"
           name="extraInfo"
-          label="Información adicional"
+          label="Información adicional (Completar)"
           placeholder="Describa su información"
           value={formData.extraInfo}
           errorMessage={errors["extraInfo"].message}
           Icon={AlignCenter}
-          userHint="Indique salario mensual, lugar de trabajo y si cuenta con carta de trabajo y con los últimos 3 estados de cuenta de su nómina"
           onChange={handleChange}
         />
         {/* <Form.Input
