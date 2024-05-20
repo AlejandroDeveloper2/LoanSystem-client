@@ -99,7 +99,6 @@
     li {
         list-style: none;
         display: block;
-        overflow: hidden;
     }
 
     @media(min-width:1400px) {
