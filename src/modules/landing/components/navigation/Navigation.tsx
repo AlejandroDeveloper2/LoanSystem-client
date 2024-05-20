@@ -23,6 +23,7 @@ const Navigation = (): JSX.Element => {
           href="#home"
           aria-label="Descubra nuestro proposito principal en Cashmoney RD"
           className={"buttonText" + " " + styles.link}
+          id="logo-link"
         >
           <img
             className={styles.logo}

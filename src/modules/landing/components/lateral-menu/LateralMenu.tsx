@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import { navLinks } from "@modules/landing/constants/navData";
 import { LateralMenuProps } from "@modules/landing/interfaces/component-interfaces/LateralMenuProps";
 
@@ -21,14 +19,16 @@ const LateralMenu = ({ isMenuVisible }: LateralMenuProps): JSX.Element => {
       />
       <ul className={styles.mobileLinkList}>
         {navLinks.map((link, i) => (
-          <Link
-            key={i}
-            to={link.to}
-            className={"buttonText" + " " + stylesNav.link}
-          >
-            {link.label}
-            <span className={stylesNav.linkIndicator}></span>
-          </Link>
+          <li key={i}>
+            <a
+              href={link.to}
+              className={"buttonText" + " " + stylesNav.link}
+              aria-label={link.ariaLabel}
+            >
+              {link.label}
+              <span className={stylesNav.linkIndicator}></span>
+            </a>
+          </li>
         ))}
       </ul>
     </nav>

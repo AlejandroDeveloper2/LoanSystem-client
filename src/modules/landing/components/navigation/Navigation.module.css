@@ -12,8 +12,16 @@
     margin:auto;
     z-index:100;
 
+    a[id="logo-link"]{
+        display: none;
+    }
+
     @media(min-width:1400px) {
         width: 90%;
+        a[id="logo-link"]{
+            display: block;
+        }
+    
         & i {
             display:flex;
         }
