@@ -24,7 +24,7 @@ const UploadDocForm = ({
   toggleModal,
 }: UploadDocFormProps): JSX.Element => {
   function action() {
-    if (clientDocUrl === null) {
+    if (clientDocUrl === null || clientDocUrl === "null") {
       uploadClientDoc(
         clientId,
         formData.clientDoc as Blob,

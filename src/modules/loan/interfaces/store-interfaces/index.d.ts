@@ -24,7 +24,8 @@ interface LoanSlice {
     searchValue: string,
     loanFilters: LoanFilters,
     filter: string,
-    toggleLoading: (message: string, isLoading: boolean) => void
+    toggleLoading: (message: string, isLoading: boolean) => void,
+    signal?: AbortSignal
   ) => Promise<void>;
   getLoan: (
     loanId: string,
@@ -101,7 +102,8 @@ interface AnnotationSlice {
     searchValue: string,
     loanFilters: AnnotationFilters,
     filter: string,
-    toggleLoading: (message: string, isLoading: boolean) => void
+    toggleLoading: (message: string, isLoading: boolean) => void,
+    signal?: AbortSignal
   ) => Promise<void>;
   createAnnotation: (
     loanId: string,

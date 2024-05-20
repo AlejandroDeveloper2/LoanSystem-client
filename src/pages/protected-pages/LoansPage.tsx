@@ -15,6 +15,7 @@ const LoansPage = (): JSX.Element => {
 
   const {
     searchValue,
+    debouncedValue,
     recordsToList,
     currentPage,
     firstShownRecord,
@@ -26,7 +27,7 @@ const LoansPage = (): JSX.Element => {
   } = usePagination(pagination);
 
   const { loadingData, filter, DialogBox, DialogDelete, getTableOptions } =
-    useLoanLoad(currentPage, searchValue, recordsToList);
+    useLoanLoad(currentPage, searchValue, debouncedValue, recordsToList);
 
   return (
     <>

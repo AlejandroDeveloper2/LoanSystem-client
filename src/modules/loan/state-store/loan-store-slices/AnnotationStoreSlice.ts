@@ -38,7 +38,8 @@ const createAnnotationStoreSlice: StateCreator<
     searchValue: string,
     annotationFilters: AnnotationFilters,
     filter: string,
-    toggleLoading: (message: string, isLoading: boolean) => void
+    toggleLoading: (message: string, isLoading: boolean) => void,
+    signal?: AbortSignal
   ): Promise<void> => {
     const token: string = window.localStorage.getItem("token") ?? "";
     try {
@@ -51,7 +52,8 @@ const createAnnotationStoreSlice: StateCreator<
           limit,
           searchValue,
           annotationFilters,
-          filter
+          filter,
+          signal
         );
       set({ annotations, notePagination: { ...pagination, limit } });
     } catch (e: unknown) {

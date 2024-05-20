@@ -15,6 +15,7 @@ const LoanAnnotationPage = (): JSX.Element => {
   const { annotations, notePagination } = useLoanStore();
   const {
     searchValue,
+    debouncedValue,
     recordsToList,
     currentPage,
     firstShownRecord,
@@ -32,7 +33,12 @@ const LoanAnnotationPage = (): JSX.Element => {
     loadingData,
     modalData,
     getTableOptions,
-  } = useAnnotationsLoad(currentPage, searchValue, recordsToList);
+  } = useAnnotationsLoad(
+    currentPage,
+    searchValue,
+    debouncedValue,
+    recordsToList
+  );
 
   const annotation = annotations.filter(
     (annotation) => annotation.id === modalData.elementId

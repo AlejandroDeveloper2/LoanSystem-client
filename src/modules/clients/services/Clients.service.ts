@@ -21,7 +21,8 @@ export class ClientsService {
     limit: string,
     searchValue: string,
     clientFilters: ClientsFilters,
-    filter?: string
+    filter?: string,
+    signal?: AbortSignal
   ): Promise<TableResponse<Client>> {
     let response: TableResponse<Client>;
 
@@ -30,6 +31,7 @@ export class ClientsService {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      signal,
       params: {
         limit,
         orderBy: filter,

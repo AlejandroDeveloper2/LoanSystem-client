@@ -24,7 +24,7 @@ const UploadDocForm = ({
   toggleModal,
 }: UploadDocFormProps): JSX.Element => {
   function action() {
-    if (promissoryNoteUrl === null) {
+    if (promissoryNoteUrl === null || promissoryNoteUrl === "null") {
       uploadPromissoryNote(
         loanId,
         formData.promissoryNote as Blob,

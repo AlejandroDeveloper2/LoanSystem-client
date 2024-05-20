@@ -37,7 +37,8 @@ const useClientsStore = create<ClientStore>((set, get) => ({
     searchValue: string,
     clientFilters: ClientsFilters,
     filter: string,
-    toggleLoading: (message: string, isLoading: boolean) => void
+    toggleLoading: (message: string, isLoading: boolean) => void,
+    signal?: AbortSignal
   ): Promise<void> => {
     const token: string = window.localStorage.getItem("token") ?? "";
     try {
@@ -49,7 +50,8 @@ const useClientsStore = create<ClientStore>((set, get) => ({
           limit,
           searchValue,
           clientFilters,
-          filter
+          filter,
+          signal
         );
       set({ clients, paginationData: { ...pagination, limit } });
     } catch (e: unknown) {

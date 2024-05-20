@@ -27,7 +27,8 @@ export class LoanService {
     limit: string,
     searchValue: string,
     loanFilters: LoanFilters,
-    filter: string
+    filter: string,
+    signal?: AbortSignal
   ): Promise<TableResponse<Loan>> {
     let response: TableResponse<Loan>;
     const config = {
@@ -35,6 +36,7 @@ export class LoanService {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      signal,
       params: {
         limit,
         loanState: filter,

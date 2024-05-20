@@ -99,7 +99,8 @@ const useClientRequestStore = create<ClientRequestStore>((set, get) => ({
     searchValue: string,
     loanRequestFilters: ClientRequestFilters,
     filter: string,
-    toggleLoading: (message: string, isLoading: boolean) => void
+    toggleLoading: (message: string, isLoading: boolean) => void,
+    signal?: AbortSignal
   ): Promise<void> => {
     const token: string = window.localStorage.getItem("token") ?? "";
     try {
@@ -114,7 +115,8 @@ const useClientRequestStore = create<ClientRequestStore>((set, get) => ({
           limit,
           searchValue,
           loanRequestFilters,
-          filter
+          filter,
+          signal
         );
 
       set({ clientRequests, paginationData: { ...pagination, limit } });

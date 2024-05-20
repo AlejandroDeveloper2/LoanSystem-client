@@ -23,7 +23,8 @@ export interface ClientRequestStore {
     searchValue: string,
     clientRequestFilters: ClientRequestFilters,
     filter: string,
-    toggleLoading: (message: string, isLoading: boolean) => void
+    toggleLoading: (message: string, isLoading: boolean) => void,
+    signal?: AbortSignal
   ) => Promise<void>;
   getClientRequest: (
     clientRequestId: string,

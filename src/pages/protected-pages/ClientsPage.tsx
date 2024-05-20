@@ -14,6 +14,7 @@ const ClientsPage = (): JSX.Element => {
   const { paginationData } = useClientsStore();
   const {
     searchValue,
+    debouncedValue,
     recordsToList,
     currentPage,
     onSearchValueChange,
@@ -23,6 +24,7 @@ const ClientsPage = (): JSX.Element => {
   const { loadingData, filter, getTableOptions } = useClientLoad(
     currentPage,
     searchValue,
+    debouncedValue,
     recordsToList
   );
 

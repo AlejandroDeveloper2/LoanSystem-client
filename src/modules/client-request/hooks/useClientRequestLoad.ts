@@ -16,6 +16,7 @@ import { getClientRequestTableOptions } from "@modules/client-request/utils/help
 const useClientRequestLoad = (
   currentPage: number,
   searchValue: string,
+  debouncedValue: string,
   recordsToList: string
 ) => {
   const navigate = useNavigate();
@@ -45,15 +46,20 @@ const useClientRequestLoad = (
   );
 
   useEffect(() => {
-    getAllClientRequests(
-      currentPage,
-      recordsToList,
-      searchValue,
-      filtersData,
-      chosenFilter === "Todo" ? "" : chosenFilter,
-      toggleLoading
-    );
-  }, [currentPage, filtersData, chosenFilter, recordsToList, searchValue]);
+    const controller = new AbortController();
+    if ((debouncedValue && debouncedValue.length >= 3) || searchValue === "") {
+      getAllClientRequests(
+        currentPage,
+        recordsToList,
+        searchValue,
+        filtersData,
+        chosenFilter === "Todo" ? "" : chosenFilter,
+        toggleLoading,
+        controller.signal
+      );
+    }
+    return () => controller.abort();
+  }, [currentPage, filtersData, chosenFilter, recordsToList, debouncedValue]);
 
   const getTableOptions = (
     request: ParsedClientRequestData

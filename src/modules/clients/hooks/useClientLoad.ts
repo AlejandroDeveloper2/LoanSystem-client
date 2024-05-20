@@ -15,6 +15,7 @@ import { getClientTableOptions } from "@modules/clients/utils/helpers";
 const useClientLoad = (
   currentPage: number,
   searchValue: string,
+  debouncedValue: string,
   recordsToList: string
 ) => {
   const navigate = useNavigate();
@@ -26,20 +27,25 @@ const useClientLoad = (
   const { getAllClients } = useClientsStore();
 
   useEffect(() => {
-    getAllClients(
-      recordsToList,
-      String(currentPage),
-      searchValue,
-      filtersData,
-      chosenFilter,
-      toggleLoading
-    );
+    const controller = new AbortController();
+    if ((debouncedValue && debouncedValue.length >= 3) || searchValue === "") {
+      getAllClients(
+        recordsToList,
+        String(currentPage),
+        searchValue,
+        filtersData,
+        chosenFilter,
+        toggleLoading,
+        controller.signal
+      );
+    }
+    return () => controller.abort();
   }, [
     currentPage,
     filtersData,
     chosenFilter,
     recordsToList,
-    searchValue,
+    debouncedValue,
     currentPage,
   ]);
 

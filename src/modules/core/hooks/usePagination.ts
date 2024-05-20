@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { Pagination } from "@modules/core/interfaces/data-interfaces";
 
@@ -10,6 +11,13 @@ const usePagination = (paginationData: Pagination) => {
   const [lastShownRecord, setLastShownRecord] = useState<number>(
     window.parseInt(recordsToList)
   );
+
+  const [debouncedValue, setDebouncedValue] = useState<string>(searchValue);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedValue(searchValue), 1000);
+    return () => clearTimeout(timer);
+  }, [searchValue]);
 
   const onSearchValueChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.target.value);
@@ -55,6 +63,7 @@ const usePagination = (paginationData: Pagination) => {
 
   return {
     searchValue,
+    debouncedValue,
     recordsToList,
     currentPage,
     firstShownRecord,

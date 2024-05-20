@@ -18,6 +18,7 @@ const ClientRequestsPage = (): JSX.Element => {
 
   const {
     searchValue,
+    debouncedValue,
     recordsToList,
     currentPage,
     firstShownRecord,
@@ -29,7 +30,12 @@ const ClientRequestsPage = (): JSX.Element => {
   } = usePagination(paginationData);
 
   const { loadingData, filter, DialogBox, DialogBox2, getTableOptions } =
-    useClientRequestLoad(currentPage, searchValue, recordsToList);
+    useClientRequestLoad(
+      currentPage,
+      searchValue,
+      debouncedValue,
+      recordsToList
+    );
 
   return (
     <>

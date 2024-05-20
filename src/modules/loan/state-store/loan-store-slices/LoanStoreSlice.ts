@@ -46,7 +46,8 @@ const createLoanStoreSlice: StateCreator<
     searchValue: string,
     loanFilters: LoanFilters,
     filter: string,
-    toggleLoading: (message: string, isLoading: boolean) => void
+    toggleLoading: (message: string, isLoading: boolean) => void,
+    signal?: AbortSignal
   ): Promise<void> => {
     const token: string = window.localStorage.getItem("token") ?? "";
     try {
@@ -58,7 +59,8 @@ const createLoanStoreSlice: StateCreator<
           limit,
           searchValue,
           loanFilters,
-          filter
+          filter,
+          signal
         );
       const updatedLoans: Loan[] = loans.map((loan) => ({
         ...loan,

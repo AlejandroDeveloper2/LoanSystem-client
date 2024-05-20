@@ -16,7 +16,8 @@ export interface ClientStore {
     searchValue: string,
     clientFilters: ClientsFilters,
     filter: string,
-    toggleLoading: (message: string, isLoading: boolean) => void
+    toggleLoading: (message: string, isLoading: boolean) => void,
+    signal?: AbortSignal
   ) => Promise<void>;
   getClient: (
     clientId: string,

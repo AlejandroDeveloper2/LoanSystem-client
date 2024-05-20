@@ -22,7 +22,8 @@ export class AnnotationService {
     limit: string,
     searchValue: string,
     annotationFilters: AnnotationFilters,
-    filter?: string
+    filter?: string,
+    signal?: AbortSignal
   ): Promise<TableResponse<Annotation>> {
     let response: TableResponse<Annotation>;
 
@@ -31,6 +32,7 @@ export class AnnotationService {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      signal,
       params: {
         limit,
         orderBy: filter,

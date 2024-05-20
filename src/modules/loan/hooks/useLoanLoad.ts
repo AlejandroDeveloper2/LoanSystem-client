@@ -18,6 +18,7 @@ import { useLoanStore } from "@modules/loan/state-store";
 const useLoanLoad = (
   currentPage: number,
   searchValue: string,
+  debouncedValue: string,
   recordsToList: string
 ) => {
   const navigate = useNavigate();
@@ -64,15 +65,21 @@ const useLoanLoad = (
   }, [loans]);
 
   useEffect(() => {
-    getAllLoans(
-      currentPage,
-      recordsToList,
-      searchValue,
-      filtersData,
-      chosenFilter === "Todos" ? "" : chosenFilter,
-      toggleLoading
-    );
-  }, [currentPage, filtersData, chosenFilter, recordsToList, searchValue]);
+    const controller = new AbortController();
+    if ((debouncedValue && debouncedValue.length >= 3) || searchValue === "") {
+      getAllLoans(
+        currentPage,
+        recordsToList,
+        searchValue,
+        filtersData,
+        chosenFilter === "Todos" ? "" : chosenFilter,
+        toggleLoading,
+        controller.signal
+      );
+    }
+
+    return () => controller.abort();
+  }, [currentPage, filtersData, chosenFilter, recordsToList, debouncedValue]);
 
   const getTableOptions = (loan: Loan): IconOnlyButtonProps[] => {
     return [

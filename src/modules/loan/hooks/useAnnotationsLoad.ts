@@ -20,6 +20,7 @@ import {
 const useAnotationsLoad = (
   currentPage: number,
   searchValue: string,
+  debouncedValue: string,
   recordsToList: string
 ) => {
   const params = useParams();
@@ -42,16 +43,21 @@ const useAnotationsLoad = (
   }, [isModalVisible]);
 
   useEffect(() => {
-    getAllAnnotations(
-      loanParam.loanId,
-      currentPage,
-      recordsToList,
-      searchValue,
-      filtersData,
-      chosenFilter,
-      toggleLoading
-    );
-  }, [currentPage, filtersData, chosenFilter, recordsToList, searchValue]);
+    const controller = new AbortController();
+    if ((debouncedValue && debouncedValue.length >= 3) || searchValue === "") {
+      getAllAnnotations(
+        loanParam.loanId,
+        currentPage,
+        recordsToList,
+        searchValue,
+        filtersData,
+        chosenFilter,
+        toggleLoading,
+        controller.signal
+      );
+    }
+    return () => controller.abort();
+  }, [currentPage, filtersData, chosenFilter, recordsToList, debouncedValue]);
 
   useEffect(() => {
     getLoan(loanParam.loanId, toggleLoading);

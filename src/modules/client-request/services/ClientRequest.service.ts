@@ -69,7 +69,8 @@ export class ClientRequestService {
     limit: string,
     searchValue: string,
     loanRequestFilters: ClientRequestFilters,
-    filter?: string
+    filter?: string,
+    signal?: AbortSignal
   ): Promise<TableResponse<ParsedClientRequestData>> {
     let response: TableResponse<ParsedClientRequestData>;
     const config = {
@@ -77,6 +78,7 @@ export class ClientRequestService {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      signal,
       params: {
         limit,
         paymentCycle: filter,
