@@ -35,24 +35,14 @@ const Contact = (): JSX.Element => {
             ansiosos por escucharte.
           </p>
           <MediaLinkList>
-            {/* <MediaLinkList.Link
-              Icon={Facebook}
-              title="Facebook"
-              href="#"
-              external
-            /> */}
-            <MediaLinkList.Link
-              Icon={Instagram}
-              title="Instagram"
-              href="https://www.instagram.com/cashmoneyrd?igsh=czk2bXRsbmR2Z2hv"
-              external
-            />
-            {/* <MediaLinkList.Link
-              Icon={Telegram}
-              title="Instagram"
-              href="#"
-              external
-            /> */}
+            <li style={{ display: "block", listStyle: "none" }}>
+              <MediaLinkList.Link
+                Icon={Instagram}
+                title="Instagram"
+                href="https://www.instagram.com/cashmoneyrd?igsh=czk2bXRsbmR2Z2hv"
+                external
+              />
+            </li>
           </MediaLinkList>
         </div>
       </motion.article>

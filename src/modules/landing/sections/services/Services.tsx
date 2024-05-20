@@ -79,38 +79,38 @@ const Services = (): JSX.Element => {
           Para aplicar al crédito se debe cumplir con los siguientes requisitos:
         </p>
         <ul className={styles.cardList}>
-          <motion.div
+          <motion.li
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
             transition={{ duration: 0.5, ease: "easeIn" }}
           >
             <FeatureCard text="Ser empleado público o privado" />
-          </motion.div>
-          <motion.div
+          </motion.li>
+          <motion.li
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 0.5, ease: "easeIn" }}
           >
             <FeatureCard text="Tarjeta de cobro de nómina (Débito)" />
-          </motion.div>
-          <motion.div
+          </motion.li>
+          <motion.li
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 1, ease: "easeIn" }}
           >
             <FeatureCard text="Tarjeta de código" />
-          </motion.div>
-          <motion.div
+          </motion.li>
+          <motion.li
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 1.5, ease: "easeIn" }}
           >
             <FeatureCard text="Acceso al banking" />
-          </motion.div>
+          </motion.li>
         </ul>
       </article>
       <motion.article

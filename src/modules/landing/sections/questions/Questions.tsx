@@ -32,7 +32,7 @@ const Questions = (): JSX.Element => {
         </div>
       </motion.article>
       <ul className={styles.cardList}>
-        <motion.div
+        <motion.li
           style={{ width: "100%" }}
           initial={{ x: -100 }}
           whileInView={{ x: 0 }}
@@ -43,8 +43,8 @@ const Questions = (): JSX.Element => {
             answer="El monto máximo por primera vez es de $20,000 pesos."
             question="¿Cuál es el monto máximo que puedo solicitar por primera vez?"
           />
-        </motion.div>
-        <motion.div
+        </motion.li>
+        <motion.li
           style={{ width: "100%" }}
           initial={{ x: 100 }}
           whileInView={{ x: 0 }}
@@ -55,8 +55,8 @@ const Questions = (): JSX.Element => {
             answer="La tasa de interés es de un 7% mensual."
             question="¿Cuál es la tasa de interés?"
           />
-        </motion.div>
-        <motion.div
+        </motion.li>
+        <motion.li
           style={{ width: "100%" }}
           initial={{ x: -100 }}
           whileInView={{ x: 0 }}
@@ -67,8 +67,8 @@ const Questions = (): JSX.Element => {
             answer="Autorización para descontar la cuota de su tarjeta de nómina y/o por transferencia por Internet Banking."
             question="¿Qué debo dejar de garantía?"
           />
-        </motion.div>
-        <motion.div
+        </motion.li>
+        <motion.li
           style={{ width: "100%" }}
           initial={{ x: 100 }}
           whileInView={{ x: 0 }}
@@ -79,8 +79,8 @@ const Questions = (): JSX.Element => {
             answer="Se requiere enviar por esta misma vía su carta de trabajo, foto de cédula de identidad y los estados de cuenta de los últimos 3 meses donde se pueda verificar su cobro por nómina. "
             question="¿Qué necesito para pre-aplicar?"
           />
-        </motion.div>
-        <motion.div
+        </motion.li>
+        <motion.li
           style={{ width: "100%" }}
           initial={{ x: -100 }}
           whileInView={{ x: 0 }}
@@ -91,7 +91,7 @@ const Questions = (): JSX.Element => {
             answer="Se requiere carta de trabajo, cédula o identificación personal y Estados de cuenta de nómina."
             question="¿Qué documentación se necesita para aplicar a un crédito?"
           />
-        </motion.div>
+        </motion.li>
       </ul>
       <Figure5 id="figure-left" color="var(--primary)" />
       <Figure4 id="figure-right" color="var(--primary)" />

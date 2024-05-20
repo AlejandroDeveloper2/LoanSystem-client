@@ -19,7 +19,11 @@ const Navigation = (): JSX.Element => {
     <>
       <LateralMenu isMenuVisible={isMenuVisible} />
       <nav className={styles.nav} id="nav1">
-        <a href="#home" className={"buttonText" + " " + styles.link}>
+        <a
+          href="#home"
+          aria-label="Descubra nuestro proposito principal en Cashmoney RD"
+          className={"buttonText" + " " + styles.link}
+        >
           <img
             className={styles.logo}
             src={LogoLanding}
@@ -33,14 +37,16 @@ const Navigation = (): JSX.Element => {
         </button>
         <ul className={styles.linkList}>
           {navLinks.map((link, i) => (
-            <a
-              key={i}
-              href={link.to}
-              className={"buttonText" + " " + styles.link}
-            >
-              {link.label}
-              <span className={styles.linkIndicator}></span>
-            </a>
+            <li key={i}>
+              <a
+                href={link.to}
+                aria-label={link.ariaLabel}
+                className={"buttonText" + " " + styles.link}
+              >
+                {link.label}
+                <span className={styles.linkIndicator}></span>
+              </a>
+            </li>
           ))}
         </ul>
         <menu className={styles.options}>
