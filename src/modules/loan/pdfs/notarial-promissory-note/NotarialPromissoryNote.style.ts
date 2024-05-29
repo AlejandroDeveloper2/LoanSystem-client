@@ -50,8 +50,8 @@ export const styles = StyleSheet.create({
     color: "#000000",
     fontSize: 10,
     textAlign: "justify",
-    lineHeight: 1.5,
     fontFamily: "Outfit Regular",
+    lineHeight: 1.5,
   },
   line: {
     width: 150,

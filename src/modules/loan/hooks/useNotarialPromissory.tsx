@@ -32,7 +32,7 @@ const useNotarialPromissory = () => {
   const ModalNotarialPromissoryNote = (): JSX.Element => {
     return (
       <ModalNotarialPromissory>
-        {loan.notarialPromissoryNote ? (
+        {loan.notarialPromissoryNote !== null ? (
           <ExternalDocVisualizer
             docUrl={loan?.notarialPromissoryNote}
             downloadFunction={() => {

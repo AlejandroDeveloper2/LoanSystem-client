@@ -16,7 +16,7 @@ const NotarialPromissoryNote = ({
 
   return (
     <Document>
-      <Page size="LETTER" style={styles.page}>
+      <Page size="A4" style={styles.page}>
         <View style={styles.section}>
           <Text style={{ ...styles.title, margin: "0 auto" }}>
             PAGARE NOTARIAL
@@ -40,7 +40,7 @@ const NotarialPromissoryNote = ({
                 color: "#2C654D",
               }}
             >
-              Sr(a). {client?.fullName},
+              Sr(a). {client ? client.fullName : ""},
             </Text>{" "}
             de nacionalidad dominicana, mayor de edad, {client?.civilStatus},
             Cédula de Identidad y Electoral No. {client?.identification},
@@ -51,8 +51,9 @@ const NotarialPromissoryNote = ({
                 textDecoration: "underline",
               }}
             >
-              {client?.city}, {client?.sector}, {client?.address}, Casa{" "}
-              {client?.houseNumber}
+              {client ? client.city : ""}, {client ? client.sector : ""},{" "}
+              {client ? client.address : ""}, Casa{" "}
+              {client ? client.houseNumber : ""}
             </Text>{" "}
             quién para los fines del presente Acto se constituye en{" "}
             <Text style={{ ...styles.text, color: "#2C654D" }}>EL DEUDOR</Text>{" "}
@@ -133,7 +134,7 @@ const NotarialPromissoryNote = ({
                 color: "#2C654D",
               }}
             >
-              Sr(a). {client?.fullName}
+              Sr(a). {client ? client.fullName : ""}
             </Text>{" "}
             no haya satisfecha las cuotas indicadas a más tardar veinticuatro
             (24) horas del término o del incumplimiento de una de las cuotas, el
@@ -179,7 +180,7 @@ const NotarialPromissoryNote = ({
                 color: "#2C654D",
               }}
             >
-              (el ó la) Sr(a). {client?.fullName}
+              (el ó la) Sr(a). {client ? client.fullName : ""}
             </Text>{" "}
             dejara de pagar al
             <Text
@@ -251,7 +252,7 @@ const NotarialPromissoryNote = ({
                   color: "#2C654D",
                 }}
               >
-                Sr(a). {client?.fullName}
+                Sr(a). {client ? client.fullName : ""}
               </Text>
               <Text
                 style={{
