@@ -1,7 +1,11 @@
 import { User, Phone, HelpSquare } from "iconoir-react";
 
 import { initialValues } from "@modules/loan-request/constants/referencesInfoInitialValues";
-import { ReferencesDataForm } from "@modules/loan-request/interfaces/data-interfaces";
+import { ReferencesData } from "@modules/loan-request/interfaces/data-interfaces";
+import {
+  parseReferenceData,
+  parseReferenceDataReverse,
+} from "@modules/loan-request/utils/helpers";
 
 import { useClientRequestStore } from "@modules/client-request/state-store";
 import { fillForm } from "@modules/client-request/utils/helpers";
@@ -13,11 +17,13 @@ import styles from "@modules/core/components/form/Form.module.css";
 const ReferencesInfoSection = (): JSX.Element => {
   const { clientRequest } = useClientRequestStore();
 
-  const referencesInfo = fillForm<ReferencesDataForm>(
+  const referencesInfo = fillForm<ReferencesData>(
     clientRequest,
     "personalReference",
-    initialValues
+    parseReferenceData(initialValues)
   );
+
+  const parsedReferencesInfo = parseReferenceDataReverse(referencesInfo);
 
   return (
     <section className="formContainer">
@@ -27,42 +33,42 @@ const ReferencesInfoSection = (): JSX.Element => {
           <InfoCard
             Icon={User}
             label="Nombres del primer familiar"
-            value={referencesInfo.firstRelativeNames}
+            value={parsedReferencesInfo.firstRelativeNames}
           />
           <InfoCard
             Icon={Phone}
             label="Celular del familiar"
-            value={referencesInfo.firstRelativePhone}
+            value={parsedReferencesInfo.firstRelativePhone}
           />
           <InfoCard
             Icon={User}
             label="Nombres del segundo familiar"
-            value={referencesInfo.secondRelativeNames}
+            value={parsedReferencesInfo.secondRelativeNames}
           />
           <InfoCard
             Icon={Phone}
             label="Celular del familiar"
-            value={referencesInfo.secondRelativePhone}
+            value={parsedReferencesInfo.secondRelativePhone}
           />
           <InfoCard
             Icon={User}
             label="Primer nombre referencia (Amigo)"
-            value={referencesInfo.firstFriendNames}
+            value={parsedReferencesInfo.firstFriendNames}
           />
           <InfoCard
             Icon={Phone}
             label="Celular"
-            value={referencesInfo.firstFriendPhone}
+            value={parsedReferencesInfo.firstFriendPhone}
           />
           <InfoCard
             Icon={User}
             label="Segundo nombre referencia (Amigo)"
-            value={referencesInfo.secondFriendNames}
+            value={parsedReferencesInfo.secondFriendNames}
           />
           <InfoCard
             Icon={Phone}
             label="Celular"
-            value={referencesInfo.secondFriendPhone}
+            value={parsedReferencesInfo.secondFriendPhone}
           />
           <InfoCard
             Icon={HelpSquare}
@@ -72,12 +78,12 @@ const ReferencesInfoSection = (): JSX.Element => {
           <InfoCard
             Icon={User}
             label="Nombre de la persona que lo recomendó"
-            value={referencesInfo.referredName}
+            value={parsedReferencesInfo.referredName}
           />
           <InfoCard
             Icon={Phone}
             label="Celular"
-            value={referencesInfo.referredPhone}
+            value={parsedReferencesInfo.referredPhone}
           />
         </fieldset>
       </form>
